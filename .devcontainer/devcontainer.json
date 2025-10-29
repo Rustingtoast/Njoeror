@@ -14,7 +14,14 @@
 
 	// Use 'postCreateCommand' to run commands after the container is created.
 	// "postCreateCommand": "sudo chmod a+x \"$(pwd)\" && sudo rm -rf /var/www/html && sudo ln -s \"$(pwd)\" /var/www/html"
-  	"postCreateCommand": "sudo chmod a+x ./.devcontainer/postCreateCommand.sh && ./.devcontainer/postCreateCommand.sh"
+	"postCreateCommand": "sudo chmod a+x ./.devcontainer/postCreateCommand.sh && ./.devcontainer/postCreateCommand.sh",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"hediet.vscode-drawio"
+			]
+		}
+	}
 
 	// Configure tool-specific properties.
 	// "customizations": {},
