@@ -5,7 +5,7 @@ Schulprojekt für Liegeplatzverwaltung und Bootsverleih am Plauer See 
 
 - On start of the Devcontainer navigate to project-root Folder
 
-    - `cd public-html/project-root/`
+    - `cd public_html/project-root/`
 
 - Run `composer install`
 
