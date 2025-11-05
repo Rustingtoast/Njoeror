@@ -7,7 +7,7 @@
   </head>
   <body>
     <div>
-        <h1>Hello, world!</h1>
+              <h1>Hello, world!</h1>
         <form>
             <label>Info</label>
             <input type="text" placeholder="Stuff" size=15>

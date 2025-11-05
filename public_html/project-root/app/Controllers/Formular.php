@@ -3,14 +3,17 @@
 namespace App\Controllers;
 
 use CodeIgniter\Controller;
+use APP\Models\Formulara;
 
 class Formular extends BaseController
 {
-    public function text()
-    {
-        // Pass data to the view if needed
-        $data = [];
+    public function text(){
+        // $formModel = new Formulara();
 
-        return view('formular_text', $data);
+        // $status = $formModel->testConnection();
+
+        // return view('formular_text', ['dbStatus' => $status,]);
+        return view('formular_text', []);
     }
+
 }
