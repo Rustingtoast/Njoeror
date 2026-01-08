@@ -8,3 +8,4 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 
 $routes->get('form-text', 'Formular::text');
+$routes->get('contact', 'Contact::index');
