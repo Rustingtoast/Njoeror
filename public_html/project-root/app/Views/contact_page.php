@@ -12,46 +12,46 @@
         <!-- As a heading -->
         <nav class="navbar bg-body-tertiary">
             <div class="container-fluid">
-            <span class="navbar-brand mb-0 h1">Navbar</span>
+            <span class="navbar-brand h1">Navbar</span>
         </div>
         </nav>
     </div>
 
-    </div class="p-3">
-        </div>
-            <form class="row gy-2 gx-3 align-items-center">
-            <div class="col-auto">
-                <label class="visually-hidden" for="autoSizingInput">Name</label>
-                <input type="text" class="form-control" id="autoSizingInput" placeholder="Jane Doe">
+    </div class="">
+        <div class="mt-5 mx-5 card">
+            <div class="card-body">
+                <form class="row gy-2 gx-3 align-items-center row">
+                    <div class="col"> 
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="INPUT_Name" placeholder="name@example.com">
+                            <label for="floatingInput">Vorname</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword">Nachname</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                            <label for="floatingInput">Email address</label>
+                        </div>
+                        <div class="form-floating">
+                            <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                            <label for="floatingPassword">Password</label>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 280px"></textarea>
+                            <label for="floatingTextarea2">Comments</label>
+                        </div>
+                    </div>
+                </form>
             </div>
-            <div class="col-auto">
-                <label class="visually-hidden" for="autoSizingInputGroup">Username</label>
-                <div class="input-group">
-                <div class="input-group-text">@</div>
-                <input type="text" class="form-control" id="autoSizingInputGroup" placeholder="Username">
-                </div>
+
+            <div class="mt-5 mb-5 ms-5 me-10">
+              This div has a top margin of 3, bottom margin of 4, left margin of 2, and right margin of 5.
             </div>
-            <div class="col-auto">
-                <label class="visually-hidden" for="autoSizingSelect">Preference</label>
-                <select class="form-select" id="autoSizingSelect">
-                <option selected>Choose...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-                </select>
-            </div>
-            <div class="col-auto">
-                <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="autoSizingCheck">
-                <label class="form-check-label" for="autoSizingCheck">
-                    Remember me
-                </label>
-                </div>
-            </div>
-            <div class="col-auto">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-            </form>
+
         </div>
     </body>
 </html>
