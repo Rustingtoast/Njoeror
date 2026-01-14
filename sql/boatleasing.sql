@@ -6,6 +6,8 @@ CREATE OR REPLACE TABLE `Liegeplatzverwalter`.`Person` (
     `ID` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
     `Vorname` VARCHAR(255) NOT NULL,
     `Nachname` VARCHAR(255) NOT NULL,
+    `E-Mail` VARCHAR(100) NOT NULL,
+    `Passwort` VARCHAR(255) NOT NULL,
     `Geburtsdatum` DATE NOT NULL,
     `Rolle` INTEGER NOT NULL,
     PRIMARY KEY(`ID`)
@@ -17,8 +19,8 @@ CREATE OR REPLACE TABLE `Liegeplatzverwalter`.`Liegeplatz` (
     PRIMARY KEY(`ID`)
 );
 
-CREATE OR REPLACE TABLE `Liegeplatzverwalter`.`Boat` (
-    `id` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+CREATE OR REPLACE TABLE `Liegeplatzverwalter`.`Boot` (
+    `ID` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
     `Typ` TINYINT NOT NULL,
     `Status` INTEGER NOT NULL,
     `Groesse` VARCHAR(255) NOT NULL,
@@ -28,12 +30,12 @@ CREATE OR REPLACE TABLE `Liegeplatzverwalter`.`Boat` (
         ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
-CREATE OR REPLACE TABLE `Liegeplatzverwalter`.`Boat_Reservation` (
+CREATE OR REPLACE TABLE `Liegeplatzverwalter`.`Boot_Reservierung` (
     `ID` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
-    `User_FID` INTEGER NOT NULL,
-    `Start_Date` DATE NOT NULL,
-    `End_Date` DATE NOT NULL,
+    `Start_Datum` DATE NOT NULL,
+    `End_Datum` DATE NOT NULL,
     `Boat_FID` INTEGER NOT NULL,
+    `User_FID` INTEGER NOT NULL,
     PRIMARY KEY(`ID`),
     FOREIGN KEY(`Boat_FID`) REFERENCES `Liegeplatzverwalter`.`Boat`(`id`)
         ON UPDATE NO ACTION ON DELETE NO ACTION,
@@ -41,10 +43,10 @@ CREATE OR REPLACE TABLE `Liegeplatzverwalter`.`Boat_Reservation` (
         ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
-CREATE OR REPLACE TABLE `Liegeplatzverwalter`.`Liegeplatz_Reservation` (
+CREATE OR REPLACE TABLE `Liegeplatzverwalter`.`Liegeplatz_Reservierung` (
     `ID` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
-    `Start_Date` DATE NOT NULL,
-    `End_Date` DATE NOT NULL,
+    `Start_Datum` DATE NOT NULL,
+    `End_Datum` DATE NOT NULL,
     `Liegeplatz_FID` INTEGER NOT NULL,
     `User_FID` INTEGER NOT NULL,
     PRIMARY KEY(`ID`),
