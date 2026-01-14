@@ -3,11 +3,11 @@ Schulprojekt für Liegeplatzverwaltung und Bootsverleih am Plauer See 
 
 ## Deploy Project in Dev Container
 
-- On start of the Devcontainer navigate to project-root Folder
+- On start of the Devcontainer run 
 
-    - `cd public_html/project-root/`
-
-- Run `composer install`
+    - init DB ``./initDb.sh ``
+    - ``cd public_html``
+    - Run ``composer install``
 
 - Access Page with http://localhost:8080/public/
 
