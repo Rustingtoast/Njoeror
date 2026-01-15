@@ -1,3 +1,5 @@
+#!/bin/bash
+
 sudo chmod a+x "$(pwd)/public_html"
 sudo rm -rf /var/www/html
 sudo ln -s "$(pwd)/public_html" /var/www/html

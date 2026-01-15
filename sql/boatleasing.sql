@@ -1,8 +1,10 @@
+DROP DATABASE IF EXISTS `Liegeplatzverwalter`;
 CREATE DATABASE IF NOT EXISTS Liegeplatzverwalter;
+
 GRANT ALL PRIVILEGES ON Liegeplatzverwalter.* TO 'mariadb'@'%';
 FLUSH PRIVILEGES;
 
-CREATE OR REPLACE TABLE `Liegeplatzverwalter`.`Person` (
+CREATE TABLE IF NOT EXISTS `Liegeplatzverwalter`.`Person` (
     `ID` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
     `Vorname` VARCHAR(255) NOT NULL,
     `Nachname` VARCHAR(255) NOT NULL,
@@ -13,13 +15,13 @@ CREATE OR REPLACE TABLE `Liegeplatzverwalter`.`Person` (
     PRIMARY KEY(`ID`)
 );
 
-CREATE OR REPLACE TABLE `Liegeplatzverwalter`.`Liegeplatz` (
+CREATE TABLE IF NOT EXISTS `Liegeplatzverwalter`.`Liegeplatz` (
     `ID` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
     `Position` TEXT,
     PRIMARY KEY(`ID`)
 );
 
-CREATE OR REPLACE TABLE `Liegeplatzverwalter`.`Boot` (
+CREATE TABLE IF NOT EXISTS `Liegeplatzverwalter`.`Boot` (
     `ID` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
     `Typ` TINYINT NOT NULL,
     `Status` INTEGER NOT NULL,
@@ -30,20 +32,20 @@ CREATE OR REPLACE TABLE `Liegeplatzverwalter`.`Boot` (
         ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
-CREATE OR REPLACE TABLE `Liegeplatzverwalter`.`Boot_Reservierung` (
+CREATE TABLE IF NOT EXISTS `Liegeplatzverwalter`.`Boot_Reservierung` (
     `ID` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
     `Start_Datum` DATE NOT NULL,
     `End_Datum` DATE NOT NULL,
     `Boat_FID` INTEGER NOT NULL,
     `User_FID` INTEGER NOT NULL,
     PRIMARY KEY(`ID`),
-    FOREIGN KEY(`Boat_FID`) REFERENCES `Liegeplatzverwalter`.`Boat`(`id`)
+    FOREIGN KEY(`Boat_FID`) REFERENCES `Liegeplatzverwalter`.`Boot`(`id`)
         ON UPDATE NO ACTION ON DELETE NO ACTION,
     FOREIGN KEY(`User_FID`) REFERENCES `Liegeplatzverwalter`.`Person`(`ID`)
         ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
-CREATE OR REPLACE TABLE `Liegeplatzverwalter`.`Liegeplatz_Reservierung` (
+CREATE TABLE IF NOT EXISTS `Liegeplatzverwalter`.`Liegeplatz_Reservierung` (
     `ID` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
     `Start_Datum` DATE NOT NULL,
     `End_Datum` DATE NOT NULL,

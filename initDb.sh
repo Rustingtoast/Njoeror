@@ -1,0 +1,3 @@
+#!/bin/bash
+
+mysql -u root -pmariadb -h 127.0.0.1 < /workspaces/Njoeror/sql/boatleasing.sql
