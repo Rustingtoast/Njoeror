@@ -26,10 +26,10 @@ class Database extends Config
      */
     public array $default = [
         'DSN'          => '',
-        'hostname'     => 'localhost',
-        'username'     => 'mariadb',
+        'hostname'     => '127.0.0.1',
+        'username'     => 'root',
         'password'     => 'mariadb',
-        'database'     => 'mariadb',
+        'database'     => 'Liegeplatzverwalter',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
         'pConnect'     => false,
