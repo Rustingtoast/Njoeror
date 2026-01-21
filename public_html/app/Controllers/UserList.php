@@ -2,11 +2,16 @@
 
 namespace App\Controllers;
 
-class Home extends BaseController
+use App\Models\UserListModel;
+
+class UserList extends BaseController
 {
-    public function index(): string
+    public function index()
     {
-        return view('welcome_message');
+        $model = new UserListModel();
+        $stuff = $model->testConnection();
+        return $this->response->setJSON(['message' => $stuff]);
+        //return view('userlist');
     }
 
     public function move()

@@ -12,6 +12,10 @@ class Formular extends \CodeIgniter\Controller
     {
         echo '<h2> Hello there </h2>';
     }
+    public function move()
+    {
+        return redirect()->to('/home');
+    }
 
     public function createView()
     {
