@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    <div><?= esc($thunder); ?></div>
     <div>
         <form action="" method="">
             <input type="submit" name="BUTTON_" value="Fun">

@@ -10,8 +10,13 @@ class UserList extends BaseController
     {
         $model = new UserListModel();
         $stuff = $model->testConnection();
-        return $this->response->setJSON(['message' => $stuff]);
-        //return view('userlist');
+        $data = [
+            'hello' => 'Welcome to the user list!',   // <-- name matches $hello in the view
+            // you can also keep the old entry if you need it elsewhere
+            'thunder' => 'thnuder',
+        ];
+
+        return view('userlist', $data);
     }
 
     public function move()
