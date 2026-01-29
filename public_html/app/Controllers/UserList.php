@@ -9,11 +9,9 @@ class UserList extends BaseController
     public function index()
     {
         $model = new UserListModel();
-        $stuff = $model->testConnection();
+        $names = $model->getAllUsers();
         $data = [
-            'hello' => 'Welcome to the user list!',   // <-- name matches $hello in the view
-            // you can also keep the old entry if you need it elsewhere
-            'thunder' => 'thnuder',
+            'names' => $names,
         ];
 
         return view('userlist', $data);

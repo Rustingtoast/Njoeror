@@ -8,16 +8,23 @@ class UserListModel extends Model
 {
     protected $db;
 
-    public function testConnection(): string
+    public function getAllUsers(): array
     {
-        parent::__construct();
+
         $db = db_connect();
-        $query = $db->query('SELECT * FROM Person');
-        if ($query) {
-            $rowObj = $query->getRow();               // stdClass with properties ID, Vorname, …
-            return $rowObj->Vorname;
-        } else {
-            return "Failed Connection && No Data";
+
+        $query = $db->query('SELECT Vorname, Nachname FROM Person');
+        if (!$query) {
+            return [];
         }
+        $result = $query->getResultArray();
+
+        $data = [];
+        foreach ($result as $row) {
+
+            $fullName = trim($row['Vorname'] . ' ' . $row['Nachname']);
+            $data[] = $fullName;
+        }
+        return $data;
     }
 }

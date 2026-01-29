@@ -1,30 +1,43 @@
-<!doctype html>
-<html lang="en">
+<html lang="de">
 
 <head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Verwaltung / Benutzer</title>
 </head>
 
 <body>
-    <div><?= esc($thunder); ?></div>
-    <div>
-        <form action="" method="">
-            <input type="submit" name="BUTTON_" value="Fun">
-            <h1>User Creation, world!</h1>
+    <h1>User Creation, world!</h1>
 
-            <form action="back" method="post">
-                <input type="submit" value="back">
-            </form>
-
-            <form action="" method="post">
-
-                <input type="submit" value="create" />
-            </form>
-    </div>
-    <div>
-    </div>
+    <form action="" method="post">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Benutzer</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php if (!empty($names)) : ?>
+                    <?php $index = 0; ?>
+                    <?php foreach ($names as $name) : ?>
+                        <?php $index++; ?>
+                        <tr>
+                            <th scope="row"><?= $index ?></th>
+                            <td><?= esc($name) ?></td>
+                            <td><input type="submit" name="BUTTON_edit_<?= $index ?>" value="bearbeiten"></td>
+                            <td><input type="submit" name="BUTTON_delete_<?= $index ?>" value="löschen"></td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="4">Keine User gefunden!</td>
+                    </tr>
+                <?php endif; ?>
+            </tbody>
+        </table>
+    </form>
 </body>
 
 </html>
