@@ -28,4 +28,11 @@ class UserList extends BaseController
             echo "<p>Admin Panel wurde ausgesucht</p>";
         }
     }
+
+    public function new()
+    {
+        if (isset($_POST["BUTTON_CreateUser"])) {
+            return redirect()->to('/user/creation');
+        }
+    }
 }

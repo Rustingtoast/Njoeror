@@ -7,6 +7,9 @@
 
 <body>
     <h1>User Creation, world!</h1>
+    <form action="/user/list/new" method="post">
+        <input type="submit" name="BUTTON_CreateUser" value="Neuen Benutzer erstellen" />
+    </form>
 
     <form action="" method="post">
         <table class="table">
@@ -26,8 +29,8 @@
                         <tr>
                             <th scope="row"><?= $index ?></th>
                             <td><?= esc($name) ?></td>
-                            <td><input type="submit" name="BUTTON_edit_<?= $index ?>" value="bearbeiten"></td>
-                            <td><input type="submit" name="BUTTON_delete_<?= $index ?>" value="löschen"></td>
+                            <td><input type="submit" name="BUTTON_edit_<?= $index ?>" value="bearbeiten" disabled></td>
+                            <td><input type="submit" name="BUTTON_delete_<?= $index ?>" value="löschen" disabled></td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>

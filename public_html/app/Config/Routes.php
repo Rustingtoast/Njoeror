@@ -14,4 +14,9 @@ $routes->get('formular/new', 'Formular::createView');
 $routes->post('formular/new', 'Formular::request');
 $routes->post('formular/back', 'Formular::move');
 
-$routes->add('userlist', 'UserList::index');
+$routes->add('user/list', 'UserList::index');
+$routes->post('user/list/new', 'UserList::new');
+
+$routes->add('user/creation', 'UserCreation::index');
+$routes->post('user/creation', 'UserCreation::create');
+$routes->post('user/creation/back', 'UserCreation::back');
