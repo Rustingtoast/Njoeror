@@ -29,7 +29,10 @@ class UserEditModel extends Model
         $person->setVorname($result['Vorname']);
         $person->setNachname($result['Nachname']);
         $person->setEmail($result['E-Mail']);
+        $person->setPasswort($result['Passwort']);
         $person->setGeburtstag($result['Geburtsdatum']);
+        $person->setRolle($result['Rolle']);
+
 
         return $person;
     }

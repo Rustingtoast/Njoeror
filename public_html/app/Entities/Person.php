@@ -6,13 +6,13 @@ use CodeIgniter\Entity\Entity;
 
 class Person extends Entity
 {
-    private $id;
-    private $vorname;
-    private $nachname;
-    private $email;
-    private $passwort;
-    private $geburtsdatum;
-    private $rolle;
+    protected $id;
+    protected $vorname;
+    protected $nachname;
+    protected $email;
+    protected $passwort;
+    protected $geburtsdatum;
+    protected $rolle;
 
     public function __construct() {}
 
