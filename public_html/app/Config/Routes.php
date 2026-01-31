@@ -15,8 +15,12 @@ $routes->post('formular/new', 'Formular::request');
 $routes->post('formular/back', 'Formular::move');
 
 $routes->add('user/list', 'UserList::index');
+$routes->post('user/list', 'UserList::user_operation');
 $routes->post('user/list/new', 'UserList::new');
 
 $routes->add('user/creation', 'UserCreation::index');
 $routes->post('user/creation', 'UserCreation::create');
 $routes->post('user/creation/back', 'UserCreation::back');
+
+
+$routes->add('user/edit', 'UserEdit::index');

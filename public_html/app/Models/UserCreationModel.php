@@ -8,7 +8,7 @@ class UserCreationModel extends Model
 {
     protected $db;
 
-    public function createUser($vorname, $nachname, $email, $password, $geburtstag, $rolle)
+    public function createUser($vorname, $nachname, $email, $password, $geburtsdatum, $rolle)
     {
         $db = db_connect();
 
@@ -17,7 +17,7 @@ class UserCreationModel extends Model
             'Nachname'     => $nachname,
             'E-Mail'       => $email,  // Column name with hyphen, escaped by CodeIgniter
             'Passwort'     => $password,
-            'Geburtsdatum' => $geburtstag,
+            'Geburtsdatum' => $geburtsdatum,
             'Rolle'        => $rolle
         ];
 

@@ -24,22 +24,21 @@
                 </tr>
             </thead>
             <tbody>
-                <?php if (!empty($names)) : ?>
+                <?php if (!empty($userlist)) : ?>
                     <?php $index = 0; ?>
-                    <?php foreach ($names as $name) : ?>
-                        <?php $index++; ?>
+                    <?php foreach ($userlist as $user) : ?>
                         <tr>
-                            <th scope="row"><?= $index ?></th>
-                            <td><?= esc($name) ?></td>
+                            <th scope="row"><?= esc($user->getID()) ?></th>
+                            <td><?= esc($user->getFullName()) ?></td>
                             <td>
-                                <input type="submit" name="BUTTON_edit_<?= $index ?>" value="bearbeiten" disabled>
-                                <input type="submit" name="BUTTON_delete_<?= $index ?>" value="löschen" disabled>
+                                <input type="submit" name="BUTTON_edit_<?= esc($user->getID()) ?>" value="bearbeiten">
+                                <input type="submit" name="BUTTON_delete_<?= esc($user->getID()) ?>" value="löschen" disabled>
                             </td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
                     <tr>
-                        <td colspan="4">Keine User gefunden!</td>
+                        <td colspan="3">Keine User gefunden!</td>
                     </tr>
                 <?php endif; ?>
             </tbody>
