@@ -80,10 +80,13 @@ class UserEdit extends BaseController
         $updated_Person->setGeburtstag($_POST['INPUTDATE_BIRTHDATE']);
         $updated_Person->setRolle($_POST['SELECT_Rolle']);
 
-        $model->updateUserInformation($updated_Person);
-
-        $status = "Die Änderungen wurden gespeichert.";
-        $returnStatus = ['status' => $status, 'person' => $updated_Person];
+        if ($model->updateUserInformation($updated_Person)) {
+            $status = "Die Änderungen wurden gespeichert.";
+            $returnStatus = ['status' => $status, 'person' => $updated_Person];
+        } else {
+            $status = "Fehler beim Speichern der Änderungen.";
+            $returnStatus = ['status' => $status, 'person' => $updated_Person];
+        }
         return view('useredit', $returnStatus);
     }
 
