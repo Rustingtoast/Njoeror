@@ -4,6 +4,12 @@ CREATE DATABASE IF NOT EXISTS Liegeplatzverwalter;
 GRANT ALL PRIVILEGES ON Liegeplatzverwalter.* TO 'mariadb'@'%';
 FLUSH PRIVILEGES;
 
+CREATE USER IF NOT EXISTS 'system-user'@'%' IDENTIFIED BY 'StrongPassword123!';
+CREATE USER IF NOT EXISTS 'system-user2'@'172.18.0.2' IDENTIFIED BY 'StrongPassword123';
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, ALTER, DROP ON Liegeplatzverwalter.* TO 'system-user'@'%';
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, ALTER, DROP ON Liegeplatzverwalter.* TO 'system-user2'@'172.18.0.2';
+FLUSH PRIVILEGES;
+
 CREATE TABLE IF NOT EXISTS `Liegeplatzverwalter`.`Person` (
     `ID` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
     `Vorname` VARCHAR(255) NOT NULL,

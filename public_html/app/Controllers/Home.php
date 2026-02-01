@@ -8,4 +8,16 @@ class Home extends BaseController
     {
         return view('welcome_message');
     }
+
+    public function move()
+    {
+        print_r($_POST);
+
+        if (isset($_POST["BUTTON_Reservation"])) {
+            echo "<p>Buchung wurde ausgewählt</p>";
+        }
+        if (isset($_POST["BUTTON_Admin"])) {
+            echo "<p>Admin Panel wurde ausgesucht</p>";
+        }
+    }
 }
