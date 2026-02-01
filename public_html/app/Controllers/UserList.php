@@ -42,7 +42,7 @@ class UserList extends BaseController
             if (strpos($key, 'BUTTON_edit_') == 0) {
                 $userId = str_replace('BUTTON_edit_', '', $key);
 
-                session()->setFlashdata('to_edit_user_id', $userId);
+                session()->set('to_edit_user_id', $userId);
                 return redirect()->to('/user/edit');
             }
         }

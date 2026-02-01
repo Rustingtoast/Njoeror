@@ -24,3 +24,5 @@ $routes->post('user/creation/back', 'UserCreation::back');
 
 
 $routes->add('user/edit', 'UserEdit::index');
+$routes->post('user/edit', 'UserEdit::save');
+$routes->post('user/edit/back', 'UserEdit::back');

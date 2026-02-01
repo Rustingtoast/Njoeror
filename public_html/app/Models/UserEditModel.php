@@ -36,4 +36,22 @@ class UserEditModel extends Model
 
         return $person;
     }
+
+    public function updateUserInformation(Person $person)
+    {
+        $db = db_connect();
+
+        $data = [
+            'Vorname' => $person->getVorname(),
+            'Nachname' => $person->getNachname(),
+            'E-Mail' => $person->getEmail(),
+            'Passwort' => $person->getPasswort(),
+            'Geburtsdatum' => $person->getGeburtstag(),
+            'Rolle' => $person->getRolle(),
+        ];
+
+        $userId = session()->get('to_edit_user_id');
+
+        return $db->table('Person')->where('ID', $userId)->update($data);
+    }
 }

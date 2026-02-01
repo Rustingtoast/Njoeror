@@ -20,10 +20,6 @@
 
         <form action="" method="post" class="m-1">
 
-            <pre>
-                <?php print_r($person) ?>
-            </pre>
-
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Vorname</span>
                 <input type="text" value="<?= esc($person->getVorname()) ?>" placeholder="Max" name="INPUT_VORNAME" size=15 class="form-control" required><br>
@@ -42,7 +38,7 @@
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon4">Passwort</span>
-                <input type="password" value="<?= esc($person->getPasswort()) ?>" name="INPUT_PASSWORD" size=15 class="form-control" required><br>
+                <input type="password" value="" placeholder="*unverändert*" name="INPUT_PASSWORD" size=15 class="form-control"><br>
             </div>
 
             <div class="input-group mb-3">
@@ -53,11 +49,18 @@
             <div class="input-group mb-3">
                 <label class="input-group-text" for="inputGroupSelect01">Benutzer-Berechtigung</label>
                 <select class="form-select" id="inputGroupSelect01" name="SELECT_Rolle" required>
-                    <option selected disabled>--Nichts ausgewählt--</option>
-                    <option value="1">Admin</option>
-                    <option value="2">Mitarbeiter</option>
-                    <option value="3">Kunde</option>
+                    <option value="1" <?php echo ($person->getRolle() == 1) ? "selected" : "" ?>>Admin</option>
+                    <option value="2" <?php echo ($person->getRolle() == 2) ? "selected" : "" ?>>Mitarbeiter</option>
+                    <option value="3" <?php echo ($person->getRolle() == 3) ? "selected" : "" ?>>Kunde</option>
                 </select>
+            </div>
+
+            <div>
+                <?php if (isset($status)) : ?>
+                    <div class="alert alert-info" role="alert">
+                        <?= esc($status) ?>
+                    </div>
+                <?php endif; ?>
             </div>
 
             <input type="submit" class="btn btn-outline-dark m-1" value="Speichern">
