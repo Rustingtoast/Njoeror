@@ -47,4 +47,21 @@ class LoginModel extends Model
     {
         return ($inputPassword == $userPassword);
     }
+
+    public function userRole($email)
+    {
+        $db = db_connect();
+
+        $query = $db->query('SELECT Rolle FROM Person WHERE `E-Mail` = ? LIMIT 1', [$email]);
+        if (!$query) {
+            throw new \Exception('Database query failed');
+        }
+        $result = $query->getRowArray();
+
+        if (!$result) {
+            throw new \Exception('User not found');
+        }
+
+        return $result['Rolle'];
+    }
 }

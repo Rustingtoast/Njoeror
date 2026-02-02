@@ -21,6 +21,14 @@ class Login extends BaseController
         $model = new LoginModel();
         switch ($model->verifyUserLogin($email, $password)) {
             case StatusLogin::SUCCESS:
+
+                try {
+                    $role = $model->userRole($email);
+                    session()->set('user_role', $role);
+                } catch (\Exception $e) {
+                    return view('login', ['status' => $e->getMessage()]);
+                }
+                session()->set('user_email', $email);
                 return redirect()->to('/');
             case StatusLogin::ERROR_USER_NOT_FOUND:
                 return view('login', ['status' => 'Benutzer nicht gefunden.']);
