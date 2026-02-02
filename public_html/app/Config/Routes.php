@@ -29,3 +29,6 @@ $routes->post('user/edit/back', 'UserEdit::back');
 
 $routes->add('login', 'Login::index');
 $routes->post('login', 'Login::login');
+
+$routes->add('register', 'Register::index');
+$routes->post('register', 'Register::register');

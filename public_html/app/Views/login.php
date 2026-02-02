@@ -215,7 +215,7 @@
         <nav aria-label="Login Hilfe">
           <a href="/passwort-vergessen" class="footer-link">Passwort vergessen?</a>
           <span aria-hidden="true"> · </span>
-          <a href="/registrieren" class="footer-link">Konto erstellen</a>
+          <a href="/register" class="footer-link">Konto erstellen</a>
         </nav>
       </form>
     </main>
