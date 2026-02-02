@@ -9,12 +9,16 @@ class UserEditModel extends Model
 {
     protected $db;
 
+    public function __construct()
+    {
+        $this->db = db_connect();
+    }
+
+
     public function getUserInformation($requested_user_id)
     {
 
-        $db = db_connect();
-
-        $query = $db->query('SELECT * FROM Person WHERE ID = ?', [(int)$requested_user_id]);
+        $query = $this->db->query('SELECT * FROM Person WHERE ID = ?', [(int)$requested_user_id]);
         if (!$query) {
             return [];
         }
@@ -39,7 +43,6 @@ class UserEditModel extends Model
 
     public function updateUserInformation(Person $person)
     {
-        $db = db_connect();
 
         $data = [
             'Vorname' => $person->getVorname(),
@@ -52,6 +55,14 @@ class UserEditModel extends Model
 
         $userId = session()->get('to_edit_user_id');
 
-        return $db->table('Person')->where('ID', $userId)->update($data);
+        return $this->db->table('Person')->where('ID', $userId)->update($data);
+    }
+
+    public function isEmailUnique($email)
+    {
+        $query = $this->db->query('SELECT COUNT(*) as count FROM Person WHERE `E-Mail` = ?', [$email]);
+        $result = $query->getRowArray();
+
+        return $result['count'] == 0;
     }
 }

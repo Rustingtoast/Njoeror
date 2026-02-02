@@ -51,6 +51,13 @@ class UserEdit extends BaseController
 
         if ($person->getEmail() != ($_POST['INPUT_EMAIL'])) {
             $changed_email = true;
+
+            if (!$model->isEmailUnique($_POST['INPUT_EMAIL'])) {
+                $status = "Fehler: E-Mail wird bereits verwendet.";
+
+                $returnStatus = ['status' => $status, 'person' => $person];
+                return view('useredit', $returnStatus);
+            }
         }
 
         if ($person->getPasswort() != ($_POST['INPUT_PASSWORD']) && !empty($_POST['INPUT_PASSWORD'])) {
