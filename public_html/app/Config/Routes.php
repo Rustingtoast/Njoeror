@@ -27,5 +27,5 @@ $routes->add('user/edit', 'UserEdit::index');
 $routes->post('user/edit', 'UserEdit::save');
 $routes->post('user/edit/back', 'UserEdit::back');
 
-$routes->get('form-text', 'Formular::text');
-$routes->get('login', 'Login::text');
+$routes->add('login', 'Login::index');
+$routes->post('login', 'Login::login');

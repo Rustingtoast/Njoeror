@@ -1,234 +1,240 @@
 <!doctype html>
 <html lang="de">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Login</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
-      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
-      crossorigin="anonymous"
-    />
 
-    <style>
-      :root {
-        --brand: #2060ee;
-        --brand-hover: #3070ff;
-        --brandred: #d80202;
-        --brandred-hover: #e22a2a;
-        --panel: rgba(255, 255, 255, 0.65);
-        --shadow: 4px 4px 10px rgba(0, 0, 0, 0.35);
-      }
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login</title>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+    crossorigin="anonymous" />
 
-      body {
-        min-height: 100vh;
-        margin: 0;
-        display: grid;
-        place-items: center;
-        padding: 5vh 1rem 10vh;
-        background: url("Bilder/1.webp") no-repeat center / cover;
-        position: relative;
-      }
+  <style>
+    :root {
+      --brand: #2060ee;
+      --brand-hover: #3070ff;
+      --brandred: #d80202;
+      --brandred-hover: #e22a2a;
+      --panel: rgba(255, 255, 255, 0.65);
+      --shadow: 4px 4px 10px rgba(0, 0, 0, 0.35);
+    }
 
-      body::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: rgba(0, 128, 255, 0.3);
-        pointer-events: none;
-      }
+    body {
+      min-height: 100vh;
+      margin: 0;
+      display: grid;
+      place-items: center;
+      padding: 5vh 1rem 10vh;
+      background: url("Bilder/1.webp") no-repeat center / cover;
+      position: relative;
+    }
 
-      .login-card {
-        position: relative; /* über dem Overlay */
-        width: min(420px, 100%);
-        background: var(--panel);
-        backdrop-filter: blur(2px);
-        box-shadow: var(--shadow);
-        text-align: center;
-        padding-bottom: 1rem;
-      }
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 128, 255, 0.3);
+      pointer-events: none;
+    }
 
-      header h1,
-      header h2 {
-        margin: 0;
-      }
+    .login-card {
+      position: relative;
+      /* über dem Overlay */
+      width: min(420px, 100%);
+      background: var(--panel);
+      backdrop-filter: blur(2px);
+      box-shadow: var(--shadow);
+      text-align: center;
+      padding-bottom: 1rem;
+    }
 
-      label {
-        margin: 0;
-        cursor: pointer;
-        user-select: none;
-      }
+    header h1,
+    header h2 {
+      margin: 0;
+    }
 
-      header h1 {
-        font-size: 3rem;
-        font-weight: 700;
-        line-height: 1;
-        padding: 1rem;
-        background: #fff;
-        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
-      }
+    label {
+      margin: 0;
+      cursor: pointer;
+      user-select: none;
+    }
 
-      header h2 {
-        margin: 0 0 1.75rem;
-        padding: 0.25rem 0.5rem;
-        background: rgba(255, 255, 255, 0.6);
-        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
-      }
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1;
+      padding: 1rem;
+      background: #fff;
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+    }
 
-      .input-div {
-        padding-bottom: 1rem;
-      }
+    header h2 {
+      margin: 0 0 1.75rem;
+      padding: 0.25rem 0.5rem;
+      background: rgba(255, 255, 255, 0.6);
+      box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
-      input[type="email"],
-      input[type="password"],
-      input[type="text"] {
-        border: 0;
-        background: #fff;
-        color: #000;
-        padding: 0.5rem;
-        width: min(280px, 90%);
-      }
+    .input-div {
+      padding-bottom: 1rem;
+    }
 
-      input[type="email"]:focus,
-      input[type="password"]:focus,
-      input[type="text"]:focus,
-      input[type="checkbox"]:focus-visible,
-      a:focus-visible,
-      button:focus-visible {
-        outline: 3px solid rgba(32, 96, 238, 0.35);
-        outline-offset: 2px;
-      }
+    input[type="email"],
+    input[type="password"],
+    input[type="text"] {
+      border: 0;
+      background: #fff;
+      color: #000;
+      padding: 0.5rem;
+      width: min(280px, 90%);
+    }
 
-      input[type="checkbox"] {
-        cursor: pointer;
-      }
+    input[type="email"]:focus,
+    input[type="password"]:focus,
+    input[type="text"]:focus,
+    input[type="checkbox"]:focus-visible,
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid rgba(32, 96, 238, 0.35);
+      outline-offset: 2px;
+    }
 
-      .btn-primaryish {
-        border: 0;
-        display: inline-block;
-        padding: 0.5rem 2rem;
-        margin-bottom: 1rem;
-        background: var(--brand);
-        color: #fff;
-        text-decoration: none;
-        transition: background-color 0.2s ease-in-out;
-      }
+    input[type="checkbox"] {
+      cursor: pointer;
+    }
 
-      .btn-primaryish:hover {
-        background: var(--brand-hover);
-        cursor: pointer;
-      }
+    .btn-primaryish {
+      border: 0;
+      display: inline-block;
+      padding: 0.5rem 2rem;
+      margin-bottom: 1rem;
+      background: var(--brand);
+      color: #fff;
+      text-decoration: none;
+      transition: background-color 0.2s ease-in-out;
+    }
 
-      .btn-homepage {
-        border: 0;
-        display: inline-block;
-        padding: 0.5rem 2rem;
-        margin-bottom: 1rem;
-        background: var(--brandred);
-        color: #fff;
-        text-decoration: none;
-        transition: background-color 0.2s ease-in-out;
-      }
+    .btn-primaryish:hover {
+      background: var(--brand-hover);
+      cursor: pointer;
+    }
 
-      .btn-homepage:hover {
-        background: var(--brandred-hover);
-        cursor: pointer;
-      }
+    .btn-homepage {
+      border: 0;
+      display: inline-block;
+      padding: 0.5rem 2rem;
+      margin-bottom: 1rem;
+      background: var(--brandred);
+      color: #fff;
+      text-decoration: none;
+      transition: background-color 0.2s ease-in-out;
+    }
 
-      form {
-        padding: 0 0 1.25rem;
-      }
+    .btn-homepage:hover {
+      background: var(--brandred-hover);
+      cursor: pointer;
+    }
 
-      .footer-link {
-        text-decoration: none;
-        color: #000;
-        transition: color 0.2s ease-in-out;
-      }
+    form {
+      padding: 0 0 1.25rem;
+    }
 
-      .footer-link:hover {
-        color: var(--brand);
-      }
+    .footer-link {
+      text-decoration: none;
+      color: #000;
+      transition: color 0.2s ease-in-out;
+    }
 
-      footer small {
-        display: inline-block;
-        margin-bottom: 0.5rem;
-      }
-    </style>
-  </head>
+    .footer-link:hover {
+      color: var(--brand);
+    }
 
-  <body>
-    <div class="login-card">
-      <header>
-        <h1>LOGO<br />IMAGE</h1>
-        <h2>Login</h2>
-      </header>
+    footer small {
+      display: inline-block;
+      margin-bottom: 0.5rem;
+    }
+  </style>
+</head>
 
-      <main>
-        <form action="/login" method="post" autocomplete="on">
-          <div class="input-div">
-            <label for="email">E-Mail</label><br />
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="E-Mail"
-              inputmode="email"
-              autocomplete="username"
-              required
-            />
+<body>
+  <div class="login-card">
+    <header>
+      <h1>LOGO<br />IMAGE</h1>
+      <h2>Login</h2>
+    </header>
+
+    <main>
+      <div>
+        <?php if (isset($status)) : ?>
+          <div class="alert alert-danger" role="alert">
+            <?= esc($status) ?>
           </div>
+        <?php endif; ?>
+      </div>
+      <form action="/login" method="post" autocomplete="on">
+        <div class="input-div">
+          <label for="email">E-Mail</label><br />
+          <input
+            id="email"
+            name="INPUT_email"
+            type="email"
+            placeholder="E-Mail"
+            inputmode="email"
+            autocomplete="username"
+            required />
+        </div>
 
-          <div class="input-div">
-            <label for="password">Passwort</label><br />
-            <input
-              id="password"
-              name="password"
-              type="password"
-              placeholder="Passwort"
-              autocomplete="current-password"
-              required
-            />
-          </div>
-          <div class="input-div">
-            <label>
-              <input type="checkbox" onclick="hidePassword()">
-              Passwort anzeigen
-              </label>
-          </div>
+        <div class="input-div">
+          <label for="password">Passwort</label><br />
+          <input
+            id="password"
+            name="INPUT_password"
+            type="password"
+            placeholder="Passwort"
+            autocomplete="current-password"
+            required />
+        </div>
+        <div class="input-div">
+          <label>
+            <input type="checkbox" onclick="hidePassword()">
+            Passwort anzeigen
+          </label>
+        </div>
 
-          <div class="input-div">
-            <label>
-              <input type="checkbox" name="remember" />
-              Angemeldet bleiben
-            </label>
-          </div>
+        <div class="input-div">
+          <label>
+            <input type="checkbox" name="remember" />
+            Angemeldet bleiben
+          </label>
+        </div>
 
-          <button class="btn-primaryish" type="submit">Einloggen</button>
+        <button class="btn-primaryish" type="submit">Einloggen</button>
 
-          <nav aria-label="Login Hilfe">
-            <a href="/passwort-vergessen" class="footer-link">Passwort vergessen?</a>
-            <span aria-hidden="true"> · </span>
-            <a href="/registrieren" class="footer-link">Konto erstellen</a>
-          </nav>
-        </form>
-      </main>
+        <nav aria-label="Login Hilfe">
+          <a href="/passwort-vergessen" class="footer-link">Passwort vergessen?</a>
+          <span aria-hidden="true"> · </span>
+          <a href="/registrieren" class="footer-link">Konto erstellen</a>
+        </nav>
+      </form>
+    </main>
 
-      <footer>
-        <a href="/homepage.html" class="btn-homepage">Zurück zur Startseite</a><br />
-        <small>&copy; <span id="year"></span> LDAP-Bros</small>
-      </footer>
-    </div>
+    <footer>
+      <small>&copy; <span id="year"></span> LDAP-Bros</small>
+    </footer>
+  </div>
 
-    <script>
-        function hidePassword() {
-            let x = document.getElementById("password");
-            if (x.type === "password") {
-                x.type = "text";
-            } else {
-                x.type = "password";
-            }
-        }
-    </script>
-  </body>
+  <script>
+    function hidePassword() {
+      let x = document.getElementById("password");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+  </script>
+</body>
+
 </html>
