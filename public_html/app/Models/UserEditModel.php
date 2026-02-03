@@ -14,18 +14,21 @@ class UserEditModel extends Model
         $this->db = db_connect();
     }
 
-
     public function getUserInformation($requested_user_id)
     {
-
-        $query = $this->db->query('SELECT * FROM Person WHERE ID = ?', [(int)$requested_user_id]);
+        $query = [];
+        try {
+            $query = $this->db->query('SELECT * FROM Person WHERE ID = ?', [(int)$requested_user_id]);
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
         if (!$query) {
-            return [];
+            throw new \Exception("Database query Empty.");
         }
         $result = $query->getRowArray();
 
         if (!$result) {
-            return "";
+            throw new \Exception("User not found.");
         }
 
         $person = new Person;

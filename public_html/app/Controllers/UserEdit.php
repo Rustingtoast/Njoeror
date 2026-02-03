@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\UserEditModel;
 use App\Entities\Person;
+use App\Entities\UserRoles;
 
 class UserEdit extends BaseController
 {
@@ -15,9 +16,17 @@ class UserEdit extends BaseController
             return redirect()->to('/user/list');
         }
 
-        $model = new UserEditModel;
-        $person = $model->getUserInformation($userId);
+        if (!session()->get('user_email') || (session()->get('user_role') == UserRoles::USER->value)) {
+            return redirect()->to('/login');
+        }
 
+        $model = new UserEditModel;
+        try {
+            $person = $model->getUserInformation($userId);
+        } catch (\Exception $e) {
+            $returnStatus = ['status' => $e->getMessage(), 'person' => $person];
+            return view('useredit', $returnStatus);
+        }
         $data = ['person' => $person];
 
         return view('useredit', $data);
@@ -32,8 +41,12 @@ class UserEdit extends BaseController
         }
 
         $model = new UserEditModel();
-        $person = $model->getUserInformation($userId);
-
+        try {
+            $person = $model->getUserInformation($userId);
+        } catch (\Exception $e) {
+            $returnStatus = ['status' => $e->getMessage(), 'person' => $person];
+            return view('useredit', $returnStatus);
+        }
         $changed_Vorname = false;
         $changed_Nachname = false;
         $changed_email = false;

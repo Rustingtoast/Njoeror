@@ -10,6 +10,8 @@
 </head>
 
 <body>
+    <? require 'components/navbar.php'; ?>
+
     <div>
         <span class="btn-group">
             <form action="/user/creation/back" method="post">

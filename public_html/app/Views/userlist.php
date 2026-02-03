@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <? require 'components/navbar.php'; ?>
     <h1>User Creation, world!</h1>
     <form action="/user/list/new" method="post">
         <input type="submit" name="BUTTON_CreateUser" value="Neuen Benutzer erstellen" />
