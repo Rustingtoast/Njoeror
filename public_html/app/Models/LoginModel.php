@@ -37,15 +37,10 @@ class LoginModel extends Model
             return StatusLogin::ERROR_USER_NOT_FOUND;
         }
 
-        if ($this->verifyPassword($password, $result['Passwort'])) {
+        if (password_verify($password, $result['PasswortHash'])) {
             return StatusLogin::SUCCESS;
         }
         return StatusLogin::ERROR_INVALID_PASSWORD;
-    }
-
-    public function verifyPassword($inputPassword, $userPassword)
-    {
-        return ($inputPassword == $userPassword);
     }
 
     public function userRole($email)

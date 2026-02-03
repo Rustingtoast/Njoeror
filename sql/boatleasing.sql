@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS `Liegeplatzverwalter`.`Person` (
     `Vorname` VARCHAR(255) NOT NULL,
     `Nachname` VARCHAR(255) NOT NULL,
     `E-Mail` VARCHAR(100) NOT NULL,
-    `Passwort` VARCHAR(255) NOT NULL,
+    `PasswortHash` VARCHAR(255) NOT NULL,
     `Geburtsdatum` DATE NOT NULL,
     `Rolle` INTEGER NOT NULL,
     PRIMARY KEY(`ID`)

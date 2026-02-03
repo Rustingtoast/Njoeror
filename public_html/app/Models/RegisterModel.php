@@ -34,7 +34,7 @@ class RegisterModel extends Model
             'Vorname'      => $person->getVorname(),
             'Nachname'     => $person->getNachname(),
             'E-Mail'       => $person->getEmail(),
-            'Passwort'     => $person->getPasswort(),
+            'PasswortHash'     => $person->getPasswortHash(),
             'Geburtsdatum' => $person->getGeburtstag(),
             'Rolle'        => $person->getRolle()
         ];

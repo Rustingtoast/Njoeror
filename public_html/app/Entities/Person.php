@@ -10,7 +10,7 @@ class Person extends Entity
     protected $vorname;
     protected $nachname;
     protected $email;
-    protected $passwort;
+    protected $passwortHash;
     protected $geburtsdatum;
     protected $rolle;
 
@@ -36,9 +36,9 @@ class Person extends Entity
         return $this->email;
     }
 
-    public function getPasswort()
+    public function getPasswortHash()
     {
-        return $this->passwort;
+        return $this->passwortHash;
     }
 
     public function getGeburtstag()
@@ -71,9 +71,9 @@ class Person extends Entity
         $this->email = $email;
     }
 
-    public function setPasswort($passwort)
+    public function setPasswortHash($passwortHash)
     {
-        $this->passwort = $passwort;
+        $this->passwortHash = $passwortHash;
     }
 
     public function setGeburtstag($geburtsdatum)
