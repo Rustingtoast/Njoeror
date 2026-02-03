@@ -5,6 +5,13 @@ namespace App\Models;
 use CodeIgniter\Model;
 use App\Entities\Person;
 
+
+enum UserEditResults
+{
+    case SUCCESS;
+    case FAILURE;
+}
+
 class UserEditModel extends Model
 {
     protected $db;
@@ -17,15 +24,19 @@ class UserEditModel extends Model
 
     public function getUserInformation($requested_user_id)
     {
-
-        $query = $this->db->query('SELECT * FROM Person WHERE ID = ?', [(int)$requested_user_id]);
+        $query = [];
+        try {
+            $query = $this->db->query('SELECT * FROM Person WHERE ID = ?', [(int)$requested_user_id]);
+        } catch (\Exception $e) {
+            throw new \Exception($e);
+        }
         if (!$query) {
-            return [];
+            throw new \Exception("Database query Empty.");
         }
         $result = $query->getRowArray();
 
         if (!$result) {
-            return "";
+            throw new \Exception("User not found.");
         }
 
         $person = new Person;

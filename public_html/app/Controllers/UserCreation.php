@@ -10,7 +10,8 @@ class UserCreation extends BaseController
 {
     public function index()
     {
-        if (!session()->get('user_email') || session()->get('user_role') != UserRoles::USER->value) {
+        if (!session()->get('user_email') || (session()->get('user_role') == UserRoles::USER->value &&
+            session()->get('user_role') != UserRoles::STAFF->value)) {
             return redirect()->to('/login');
         }
         return view('usercreation');
