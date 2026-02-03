@@ -32,3 +32,5 @@ $routes->post('login', 'Login::login');
 
 $routes->add('register', 'Register::index');
 $routes->post('register', 'Register::register');
+
+$routes->add('/logout', 'Logout::index');
