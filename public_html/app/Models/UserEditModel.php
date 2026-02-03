@@ -5,13 +5,6 @@ namespace App\Models;
 use CodeIgniter\Model;
 use App\Entities\Person;
 
-
-enum UserEditResults
-{
-    case SUCCESS;
-    case FAILURE;
-}
-
 class UserEditModel extends Model
 {
     protected $db;
@@ -20,7 +13,6 @@ class UserEditModel extends Model
     {
         $this->db = db_connect();
     }
-
 
     public function getUserInformation($requested_user_id)
     {
