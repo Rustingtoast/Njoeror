@@ -30,6 +30,9 @@ $userRole = session()->get('user_role');
                         <ul class="dropdown-menu">
                             <?php if ($userRole == UserRoles::ADMIN->value): ?>
                                 <li><a class="dropdown-item" href="/user/list">Benutzerverwaltung</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
                             <?php endif; ?>
                             <li><a class="dropdown-item" href="/">Anfragenverwaltung</a></li>
                         </ul>
