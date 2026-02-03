@@ -15,8 +15,8 @@ class UserCreationModel extends Model
         $data = [
             'Vorname'      => $vorname,
             'Nachname'     => $nachname,
-            'E-Mail'       => $email,  // Column name with hyphen, escaped by CodeIgniter
-            'Passwort'     => $password,
+            'E-Mail'       => $email,
+            'PasswortHash' => password_hash($password, PASSWORD_DEFAULT),
             'Geburtsdatum' => $geburtsdatum,
             'Rolle'        => $rolle
         ];
@@ -29,7 +29,7 @@ class UserCreationModel extends Model
             $db->table('Person')->insert($data);
             return "OK"; // Success
         } catch (\Exception $e) {
-            return "Error: " . $e->getMessage(); // Return the error message
+            return "Error: " . $e->getMessage();
         }
     }
 

@@ -60,8 +60,8 @@ class UserEdit extends BaseController
             }
         }
 
-        if ($person->getPasswort() != ($_POST['INPUT_PASSWORD']) && !empty($_POST['INPUT_PASSWORD'])) {
-            $changed_passwort = true;
+        if (!empty($_POST['INPUT_PASSWORD'])) {
+            $changed_passwort = !password_verify($_POST['INPUT_PASSWORD'], $person->getPasswortHash());
         }
 
         if ($person->getGeburtstag() != ($_POST['INPUTDATE_BIRTHDATE'])) {
@@ -88,9 +88,9 @@ class UserEdit extends BaseController
 
 
         if ($changed_passwort) {
-            $updated_Person->setPasswort($_POST['INPUT_PASSWORD']);
+            $updated_Person->setPasswortHash(password_hash($_POST['INPUT_PASSWORD'], PASSWORD_DEFAULT));
         } else {
-            $updated_Person->setPasswort($person->getPasswort());
+            $updated_Person->setPasswortHash("");
         }
 
 

@@ -21,13 +21,15 @@ class Register extends BaseController
         $person->setVorname($_POST['INPUT_vorname']);
         $person->setNachname($_POST['INPUT_nachname']);
         $person->setEmail($_POST['INPUT_email']);
-        $person->setPasswort($_POST['INPUT_password']);
         $person->setGeburtstag($_POST['INPUT_birthdate']);
         $person->setRolle($_POST['INPUT_rolle']);
 
-        if ($person->getPasswort() !== $_POST['INPUT_password2']) {
+        if ($_POST['INPUT_password'] !== $_POST['INPUT_password2']) {
             return view('register', ['status' => 'Passwörter stimmen nicht überein.']);
         }
+
+        $person->setPasswortHash(password_hash($_POST['INPUT_password'], PASSWORD_DEFAULT));
+
         $model = new RegisterModel();
         switch ($model->registerNewUser($person)) {
             case StatusRegister::SUCCESS:
