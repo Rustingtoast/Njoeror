@@ -3,11 +3,16 @@
 namespace App\Controllers;
 
 use App\Models\UserCreationModel;
+use App\Entities\UserRoles;
+
 
 class UserCreation extends BaseController
 {
     public function index()
     {
+        if (!session()->get('user_email') || session()->get('user_role') != UserRoles::USER->value) {
+            return redirect()->to('/login');
+        }
         return view('usercreation');
     }
 

@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\UserEditModel;
 use App\Entities\Person;
+use App\Entities\UserRoles;
 
 class UserEdit extends BaseController
 {
@@ -13,6 +14,10 @@ class UserEdit extends BaseController
         $userId = session()->get('to_edit_user_id');
         if (!$userId) {
             return redirect()->to('/user/list');
+        }
+
+        if (!session()->get('user_email') || session()->get('user_role') != UserRoles::USER->value) {
+            return redirect()->to('/login');
         }
 
         $model = new UserEditModel;
