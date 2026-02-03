@@ -21,11 +21,23 @@ class UserCreationModel extends Model
             'Rolle'        => $rolle
         ];
 
+        if (!$this->isEmailUnique($email, $db)) {
+            return "Error: E-Mail already in use.";
+        }
+
         try {
             $db->table('Person')->insert($data);
             return "OK"; // Success
         } catch (\Exception $e) {
             return "Error: " . $e->getMessage(); // Return the error message
         }
+    }
+
+    public function isEmailUnique($email, \CodeIgniter\Database\BaseConnection $db)
+    {
+        $query = $db->query('SELECT COUNT(*) as count FROM Person WHERE `E-Mail` = ?', [$email]);
+        $result = $query->getRowArray();
+
+        return $result['count'] == 0;
     }
 }

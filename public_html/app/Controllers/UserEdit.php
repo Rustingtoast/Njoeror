@@ -51,9 +51,16 @@ class UserEdit extends BaseController
 
         if ($person->getEmail() != ($_POST['INPUT_EMAIL'])) {
             $changed_email = true;
+
+            if (!$model->isEmailUnique($_POST['INPUT_EMAIL'])) {
+                $status = "Fehler: E-Mail wird bereits verwendet.";
+
+                $returnStatus = ['status' => $status, 'person' => $person];
+                return view('useredit', $returnStatus);
+            }
         }
 
-        if ($person->getPasswort() != ($_POST['INPUT_PASSWORD'])) {
+        if ($person->getPasswort() != ($_POST['INPUT_PASSWORD']) && !empty($_POST['INPUT_PASSWORD'])) {
             $changed_passwort = true;
         }
 
@@ -76,9 +83,16 @@ class UserEdit extends BaseController
         $updated_Person->setVorname($_POST['INPUT_VORNAME']);
         $updated_Person->setNachname($_POST['INPUT_NACHNAME']);
         $updated_Person->setEmail($_POST['INPUT_EMAIL']);
-        $updated_Person->setPasswort($_POST['INPUT_PASSWORD']);
         $updated_Person->setGeburtstag($_POST['INPUTDATE_BIRTHDATE']);
         $updated_Person->setRolle($_POST['SELECT_Rolle']);
+
+
+        if ($changed_passwort) {
+            $updated_Person->setPasswort($_POST['INPUT_PASSWORD']);
+        } else {
+            $updated_Person->setPasswort($person->getPasswort());
+        }
+
 
         if ($model->updateUserInformation($updated_Person)) {
             $status = "Die Änderungen wurden gespeichert.";

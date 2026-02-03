@@ -33,7 +33,7 @@
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon3">E-Mail</span>
-                <input type="text" placeholder="beispiel" name="INPUT_EMAIL" size=15 class="form-control" required><br>
+                <input type="email" placeholder="beispiel" name="INPUT_EMAIL" size=15 class="form-control" required><br>
             </div>
 
 
