@@ -17,6 +17,9 @@ CREATE TABLE IF NOT EXISTS `Liegeplatzverwalter`.`Person` (
     `E-Mail` VARCHAR(100) NOT NULL,
     `PasswortHash` VARCHAR(255) NOT NULL,
     `Geburtsdatum` DATE NOT NULL,
+    `Land` VARCHAR(100) NOT NULL,
+    `Adresse` VARCHAR(255) NOT NULL,
+    `Hausnummer` VARCHAR(20) NOT NULL,
     `Rolle` INTEGER NOT NULL,
     PRIMARY KEY(`ID`)
 );
@@ -71,13 +74,13 @@ CREATE TABLE IF NOT EXISTS `Liegeplatzverwalter`.`Liegeplatz_Reservierung` (
 
 # Rolle: 1=Admin, 2=Staff, 3=User
 INSERT INTO `Liegeplatzverwalter`.`Person`
-(`Vorname`, `Nachname`, `E-Mail`, `PasswortHash`, `Geburtsdatum`, `Rolle`)
+(`Vorname`, `Nachname`, `E-Mail`, `PasswortHash`, `Geburtsdatum`, `Land`, `Adresse`, `Hausnummer`, `Rolle`)
 VALUES
-('Admin', 'PlauerSee', 'admin@paulersee.net', '$2y$10$lWKnBEnz3FROx7hbMt9HZupQv/qXHpXkaL4L.4YSPpP9fivfaNm86', '2001-11-08', 1),
-('Jonas', 'Krause', 'jonas.krause@example.com', '$2y$10$O.99eWqBKNQx04ffDkVIKenaq4DQRNV1o0wpI8THCNXj4uTPMbz/2', '2002-06-19', 3),
-('Mark', 'Fischer', 'mark.fischer@example.com', '$2y$10$hx6bXm9TPdQFvy.ZYVXIEuIRf8FK4mfqK9f9wZp6tSRrtFfYuzv2C', '2001-07-22', 3),
-('Mara', 'Schulz', 'mara.schulz@example.com', '$2y$10$Emwe5.8BO0vIEWgfs2cB7uXghHS/cN59reKr0PDAu/FnefbM85FSW', '1995-02-28', 3),
-('Paul', 'Richter', 'paul.richter@example.com', '$2y$10$V2vj7BI1DPsAiafEViHTge.36xxfAli0BrD1KvJOmGSY3nNL2eVmO', '1991-12-03', 2);
+('Admin', 'PlauerSee', 'admin@paulersee.net', '$2y$10$lWKnBEnz3FROx7hbMt9HZupQv/qXHpXkaL4L.4YSPpP9fivfaNm86', '2001-11-08', 'Deutschland', 'Fliesenleger Bach', '93', 1),
+('Jonas', 'Krause', 'jonas.krause@example.com', '$2y$10$O.99eWqBKNQx04ffDkVIKenaq4DQRNV1o0wpI8THCNXj4uTPMbz/2', '2002-06-19', 'Frankreich', 'Rue de la Peureer', 'AB1', 3),
+('Mark', 'Fischer', 'mark.fischer@example.com', '$2y$10$hx6bXm9TPdQFvy.ZYVXIEuIRf8FK4mfqK9f9wZp6tSRrtFfYuzv2C', '2001-07-22', 'England', 'Street the castle', 'A3', 3),
+('Mara', 'Schulz', 'mara.schulz@example.com', '$2y$10$Emwe5.8BO0vIEWgfs2cB7uXghHS/cN59reKr0PDAu/FnefbM85FSW', '1995-02-28', 'Belgien', 'Rue de rose', 'B2', 3),
+('Paul', 'Richter', 'paul.richter@example.com', '$2y$10$V2vj7BI1DPsAiafEViHTge.36xxfAli0BrD1KvJOmGSY3nNL2eVmO', '1991-12-03', 'Luxemburg', 'Rue de la catastropf', '2', 2);
 
 INSERT INTO `Liegeplatzverwalter`.`Liegeplatz` (`Position`)
 VALUES

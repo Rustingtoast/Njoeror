@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="de">
 
 <head>
     <meta charset="utf-8">
@@ -218,7 +218,7 @@
                 <div class="logo-placeholder"><img src="/Images/LDAP_Bros.png" id="ldap-logo-large" alt=""></div>
                 <div class="d-flex flex-column">
                     <h1 class="auth-title">Benutzer Anlegen</h1>
-                    <small class="small-note">Benutzerverwaltung</small>
+                    <small class="small-note">Administration</small>
                 </div>
                 <div class="ms-auto">
                     <form action="/user/creation/back" method="post" class="m-0">
@@ -232,21 +232,21 @@
                     <div class="col-12">
                         <div class="input-group">
                             <span class="input-group-text" id="basic-addon1">Vorname</span>
-                            <input type="text" placeholder="Max" name="INPUT_VORNAME" size="15" class="form-control" required>
+                            <input type="text" name="INPUT_VORNAME" size="15" class="form-control" required>
                         </div>
                     </div>
 
                     <div class="col-12">
                         <div class="input-group">
                             <span class="input-group-text" id="basic-addon2">Nachname</span>
-                            <input type="text" placeholder="Mustermann" name="INPUT_NACHNAME" size="15" class="form-control" required>
+                            <input type="text" name="INPUT_NACHNAME" size="15" class="form-control" required>
                         </div>
                     </div>
 
                     <div class="col-12">
                         <div class="input-group">
                             <span class="input-group-text" id="basic-addon3">E-Mail</span>
-                            <input type="text" placeholder="beispiel" name="INPUT_EMAIL" size="15" class="form-control" required>
+                            <input type="text" name="INPUT_EMAIL" size="15" class="form-control" required>
                         </div>
                     </div>
 
@@ -260,28 +260,28 @@
                     <div class="col-12 col-md-6">
                         <div class="input-group">
                             <span class="input-group-text" id="basic-addon5">Geburtstag</span>
-                            <input type="date" placeholder="Stuff" name="INPUTDATE_BIRTHDATE" size="15" class="form-control">
+                            <input type="date" name="INPUTDATE_BIRTHDATE" size="15" class="form-control">
                         </div>
                     </div>
 
                     <div class="col-12">
                         <div class="input-group">
                             <span class="input-group-text">Land</span>
-                            <input type="text" placeholder="Deutschland" name="INPUT_COUNTRY" class="form-control" required>
+                            <input type="text" name="INPUT_COUNTRY" class="form-control" required>
                         </div>
                     </div>
 
                     <div class="col-12 col-md-8">
                         <div class="input-group">
                             <span class="input-group-text">Adresse</span>
-                            <input type="text" placeholder="Musterstraße" name="INPUT_ADDRESS" class="form-control" required>
+                            <input type="text" name="INPUT_ADDRESS" class="form-control" required>
                         </div>
                     </div>
 
                     <div class="col-12 col-md-4">
                         <div class="input-group">
                             <span class="input-group-text">Hausnr.</span>
-                            <input type="text" placeholder="12A" name="INPUT_HOUSENUMBER" class="form-control" required>
+                            <input type="text" name="INPUT_HOUSENUMBER" class="form-control" required>
                         </div>
                     </div>
 
@@ -290,7 +290,7 @@
                         <div class="input-group">
                             <label class="input-group-text" for="inputGroupSelect01">Benutzer-Berechtigung</label>
                             <select class="form-select" id="inputGroupSelect01" name="SELECT_Rolle" required>
-                                <option selected disabled>--Nichts ausgewählt--</option>
+                                <option selected disabled>Nichts ausgew&auml;hlt</option>
                                 <option value="1">Admin</option>
                                 <option value="2">Mitarbeiter</option>
                                 <option value="3">Kunde</option>
@@ -305,15 +305,10 @@
             </div>
 
             <div class="form-actions">
-                <!-- <div class="small-note">Bereits ein Account? · Zum Login</div> -->
-                <!-- <div class="small-note">Zurück zur Startseite · © LDAP-Bros</div> -->
                 <div class="small-note">Plau am See © LDAP-Bros</div>
             </div>
-
-
         </div>
     </div>
-
 </body>
 
 </html>

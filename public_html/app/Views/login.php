@@ -209,13 +209,6 @@
           </label>
         </div>
 
-        <div class="input-div">
-          <label>
-            <input type="checkbox" name="remember" />
-            Angemeldet bleiben
-          </label>
-        </div>
-
         <button class="btn-primaryish" type="submit">Einloggen</button>
 
         <nav aria-label="Login Hilfe">
