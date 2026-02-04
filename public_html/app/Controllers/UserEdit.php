@@ -53,9 +53,9 @@ class UserEdit extends BaseController
         $changed_Person->setNachname($_POST['INPUT_NACHNAME']);
         $changed_Person->setEmail($_POST['INPUT_EMAIL']);
         $changed_Person->setPasswortHash($_POST['INPUT_PASSWORD']);
-        $changed_Person->setGeburtstag($_POST['INPUT_BIRTHDATE']);
+        $changed_Person->setGeburtstag($_POST['INPUTDATE_BIRTHDATE']);
         $changed_Person->setLand($_POST['INPUT_COUNTRY']);
-        $changed_Person->setAdresse($_POST['INPUT_ADRESSE']);
+        $changed_Person->setAdresse($_POST['INPUT_ADDRESS']);
         $changed_Person->setHausnummer($_POST['INPUT_HOUSENUMBER']);
         $changed_Person->setRolle($_POST['INPUT_ROLLE']);
 

@@ -279,29 +279,29 @@
                     <div class="col-12">
                         <div class="input-group">
                             <span class="input-group-text">Land</span>
-                            <input type="text" placeholder="Deutschland" name="INPUT_COUNTRY" class="form-control" required>
+                            <input type="text" value="<?= esc($person->getLand()) ?>" name="INPUT_COUNTRY" class="form-control" required>
                         </div>
                     </div>
 
                     <div class="col-12 col-md-8">
                         <div class="input-group">
                             <span class="input-group-text">Adresse</span>
-                            <input type="text" placeholder="Musterstraße" name="INPUT_ADDRESS" class="form-control" required>
+                            <input type="text" value="<?= esc($person->getAdresse()) ?>" name="INPUT_ADDRESS" class="form-control" required>
                         </div>
                     </div>
 
                     <div class="col-12 col-md-4">
                         <div class="input-group">
                             <span class="input-group-text">Hausnr.</span>
-                            <input type="text" placeholder="12A" name="INPUT_HOUSENUMBER" class="form-control" required>
+                            <input type="text" value="<?= esc($person->getHausnummer()) ?>" name="INPUT_HOUSENUMBER" class="form-control" required>
                         </div>
                     </div>
 
                     <div class="col-12">
                         <div class="input-group">
                             <label class="input-group-text" for="inputGroupSelect01">Benutzer-Berechtigung</label>
-                            <select class="form-select" id="inputGroupSelect01" name="SELECT_Rolle" required>
-                                <option selected disabled>--Nichts ausgewählt--</option>
+                            <select class="form-select" id="inputGroupSelect01" name="INPUT_ROLLE" required>
+                                <option selected disabled>Nichts ausgewählt</option>
                                 <option value="1" <?php echo ($person->getRolle() == 1) ? "selected" : "" ?>>Admin</option>
                                 <option value="2" <?php echo ($person->getRolle() == 2) ? "selected" : "" ?>>Mitarbeiter</option>
                                 <option value="3" <?php echo ($person->getRolle() == 3) ? "selected" : "" ?>>Kunde</option>
@@ -316,8 +316,6 @@
                 </form>
             </div>
             <div class="form-actions">
-                <!-- <div class="small-note">Bereits ein Account? · Zum Login</div> -->
-                <!-- <div class="small-note">Zurück zur Startseite · © LDAP-Bros</div> -->
                 <div class="small-note">Plau am See © LDAP-Bros</div>
             </div>
         </div>
