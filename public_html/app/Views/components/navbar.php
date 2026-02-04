@@ -44,6 +44,12 @@ $userRole = session()->get('user_role');
                         <?= esc($loginUser) ?>
                     </button>
                     <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/">Liegeplatz buchen</a></li>
+                        <li><a class="dropdown-item" href="/">Boot buchen</a></li>
+                        <li><a class="dropdown-item" href="/reservation/list">Reservationen</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
                         <li><a class="dropdown-item" href="/logout">Abmelden</a></li>
                     </ul>
                 </div>
