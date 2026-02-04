@@ -209,9 +209,6 @@
         </div>
     <?php endif; ?>
 
-
-
-
     <div class="page-content">
         <div class="card auth-card">
             <div class="auth-header">

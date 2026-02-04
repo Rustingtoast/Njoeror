@@ -3,8 +3,9 @@
 namespace App\Controllers;
 
 use App\Models\UserCreationModel;
+use App\Models\StatusUserCreation;
 use App\Entities\UserRoles;
-
+use App\Entities\Person;
 
 class UserCreation extends BaseController
 {
@@ -19,24 +20,36 @@ class UserCreation extends BaseController
 
     public function create()
     {
-        $vorname = $_POST["INPUT_VORNAME"];
-        $nachname = $_POST["INPUT_NACHNAME"];
-        $email = $_POST["INPUT_EMAIL"];
-        $psw = $_POST["INPUT_PASSWORD"];
-        $birthdate = $_POST["INPUTDATE_BIRTHDATE"];
-        $rolle = $_POST["SELECT_Rolle"];
+
+        $person = new Person();
+        $person->setVorname($_POST["INPUT_VORNAME"]);
+        $person->setNachname($_POST["INPUT_NACHNAME"]);
+        $person->setEmail($_POST["INPUT_EMAIL"]);
+        $person->setPasswortHash(password_hash($_POST["INPUT_PASSWORD"], PASSWORD_DEFAULT));
+        $person->setGeburtstag($_POST["INPUTDATE_BIRTHDATE"]);
+        $person->setLand($_POST["INPUT_COUNTRY"]);
+        $person->setAdresse($_POST["INPUT_ADRESSE"]);
+        $person->setHausnummer($_POST["INPUT_HOUSENUMBER"]);
+        $person->setRolle($_POST["SELECT_Rolle"]);
 
         $model = new UserCreationModel;
 
-        try {
-            $data = $model->createUser($vorname, $nachname, $email, $psw, $birthdate, $rolle);
-
-            $toUI = ['output' => $data];
-            return view('usercreation', $toUI);
-        } catch (\Exception $e) {
-            $toUI = ['error' => "Fehler ist aufgetreten"];
-            return view('usercreation', $toUI);
+        switch ($model->createUser($person)) {
+            case StatusUserCreation::SUCCESS:
+                $toUI = ['output' => "Benutzer erfolgreich erstellt."];
+                break;
+            case StatusUserCreation::ERROR_EMAIL_ALREADY_EXISTS:
+                $toUI = ['error' => "Fehler: E-Mail ist bereits vergeben."];
+                break;
+            case StatusUserCreation::ERROR_QUERY_FAILED:
+                $toUI = ['error' => "Fehler: Datenbankabfrage fehlgeschlagen."];
+                break;
+            case StatusUserCreation::ERROR_EXCEPTION:
+                $toUI = ['error' => "Fehler: Ausnahme aufgetreten."];
+                break;
         }
+
+        return view('usercreation', $toUI);
     }
 
     public function back()

@@ -3,33 +3,45 @@
 namespace App\Models;
 
 use CodeIgniter\Model;
+use App\Entities\Person;
+
+enum StatusUserCreation
+{
+    case SUCCESS;
+    case ERROR_EMAIL_ALREADY_EXISTS;
+    case ERROR_QUERY_FAILED;
+    case ERROR_EXCEPTION;
+}
 
 class UserCreationModel extends Model
 {
     protected $db;
 
-    public function createUser($vorname, $nachname, $email, $password, $geburtsdatum, $rolle)
+    public function createUser(Person $person)
     {
         $db = db_connect();
 
         $data = [
-            'Vorname'      => $vorname,
-            'Nachname'     => $nachname,
-            'E-Mail'       => $email,
-            'PasswortHash' => password_hash($password, PASSWORD_DEFAULT),
-            'Geburtsdatum' => $geburtsdatum,
-            'Rolle'        => $rolle
+            'Vorname'      => $person->getVorname(),
+            'Nachname'     => $person->getNachname(),
+            'E-Mail'       => $person->getEmail(),
+            'PasswortHash' => $person->getPasswortHash(),
+            'Geburtsdatum' => $person->getGeburtstag(),
+            'Land'         => $person->getLand(),
+            'Adresse'      => $person->getAdresse(),
+            'Hausnummer'   => $person->getHausnummer(),
+            'Rolle'        => $person->getRolle()
         ];
 
-        if (!$this->isEmailUnique($email, $db)) {
-            return "Error: E-Mail already in use.";
+        if (!$this->isEmailUnique($person->getEmail(), $db)) {
+            return StatusUserCreation::ERROR_EMAIL_ALREADY_EXISTS;
         }
 
         try {
             $db->table('Person')->insert($data);
-            return "OK"; // Success
+            return StatusUserCreation::SUCCESS;
         } catch (\Exception $e) {
-            return "Error: " . $e->getMessage();
+            return StatusUserCreation::ERROR_EXCEPTION;
         }
     }
 

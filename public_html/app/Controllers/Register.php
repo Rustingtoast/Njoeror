@@ -22,6 +22,9 @@ class Register extends BaseController
         $person->setNachname($_POST['INPUT_NACHNAME']);
         $person->setEmail($_POST['INPUT_EMAIL']);
         $person->setGeburtstag($_POST['INPUT_BIRTHDATE']);
+        $person->setLand($_POST['INPUT_COUNTRY']);
+        $person->setAdresse($_POST['INPUT_ADRESSE']);
+        $person->setHausnummer($_POST['INPUT_HOUSENUMBER']);
         $person->setRolle($_POST['INPUT_ROLLE']);
 
         if ($_POST['INPUT_PASSWORD'] !== $_POST['INPUT_PASSWORD_CONFIRM']) {

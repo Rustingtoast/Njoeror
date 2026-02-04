@@ -54,6 +54,9 @@ class UserEdit extends BaseController
         $changed_Person->setEmail($_POST['INPUT_EMAIL']);
         $changed_Person->setPasswortHash($_POST['INPUT_PASSWORD']);
         $changed_Person->setGeburtstag($_POST['INPUT_BIRTHDATE']);
+        $changed_Person->setLand($_POST['INPUT_COUNTRY']);
+        $changed_Person->setAdresse($_POST['INPUT_ADRESSE']);
+        $changed_Person->setHausnummer($_POST['INPUT_HOUSENUMBER']);
         $changed_Person->setRolle($_POST['INPUT_ROLLE']);
 
         if (!$this->checkForChanges($original_person, $changed_Person)) {
@@ -94,40 +97,44 @@ class UserEdit extends BaseController
 
     private function checkForChanges(Person $original, Person $updated): bool
     {
-        $changed_Vorname = false;
-        $changed_Nachname = false;
-        $changed_email = false;
-        $changed_passwort = false;
-        $changed_geburtsdatum = false;
-        $changed_rolle = false;
+        $something_changed = false;
 
         if ($original->getVorname() != ($updated->getVorname())) {
-            $changed_Vorname = true;
+            $something_changed = true;
         }
 
         if ($original->getNachname() != ($updated->getNachname())) {
-            $changed_Nachname = true;
+            $something_changed = true;
         }
 
         if ($original->getEmail() != ($updated->getEmail())) {
-            $changed_email = true;
+            $something_changed = true;
         }
 
         if ($updated->getPasswortHash() != "") {
-            $changed_passwort = !password_verify($updated->getPasswortHash(), $original->getPasswortHash());
+            $something_changed = !password_verify($updated->getPasswortHash(), $original->getPasswortHash());
         }
 
         if ($original->getGeburtstag() != ($updated->getGeburtstag())) {
-            $changed_geburtsdatum = true;
+            $something_changed = true;
+        }
+
+        if ($original->getLand() != ($updated->getLand())) {
+            $something_changed = true;
+        }
+
+        if ($original->getAdresse() != ($updated->getAdresse())) {
+            $something_changed = true;
+        }
+
+        if ($original->getHausnummer() != ($updated->getHausnummer())) {
+            $something_changed = true;
         }
 
         if ($original->getRolle() != ($updated->getRolle())) {
-            $changed_rolle = true;
+            $something_changed = true;
         }
 
-        if ($changed_Vorname || $changed_Nachname || $changed_email || $changed_passwort || $changed_geburtsdatum || $changed_rolle) {
-            return true;
-        }
-        return false;
+        return $something_changed;
     }
 }

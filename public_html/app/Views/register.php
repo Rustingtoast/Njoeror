@@ -205,9 +205,6 @@
         </div>
     <?php endif; ?>
 
-
-
-
     <div class="page-content">
         <div class="card auth-card">
             <div class="auth-header">
@@ -255,14 +252,14 @@
                         </div>
                     </div>
 
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 ">
                         <div class="input-group">
                             <span class="input-group-text" id="basic-addon6">Geburtstag</span>
                             <input type="date" name="INPUT_BIRTHDATE" size="15" class="form-control">
                         </div>
                     </div>
 
-                    <div class="col-12">
+                    <div class="col-12 ">
                         <div class="input-group">
                             <span class="input-group-text">Land</span>
                             <input type="text" name="INPUT_COUNTRY" class="form-control" required>
