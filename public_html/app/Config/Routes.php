@@ -21,7 +21,6 @@ $routes->add('user/creation', 'UserCreation::index');
 $routes->post('user/creation', 'UserCreation::create');
 $routes->post('user/creation/back', 'UserCreation::back');
 
-
 $routes->add('user/edit', 'UserEdit::index');
 $routes->post('user/edit', 'UserEdit::save');
 $routes->post('user/edit/back', 'UserEdit::back');
@@ -31,5 +30,7 @@ $routes->post('login', 'Login::login');
 
 $routes->add('register', 'Register::index');
 $routes->post('register', 'Register::register');
+
+$routes->add('reservation/list', 'ReservationList::index');
 
 $routes->add('/logout', 'Logout::index');
