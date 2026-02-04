@@ -27,11 +27,16 @@ class UserCreation extends BaseController
         $rolle = $_POST["SELECT_Rolle"];
 
         $model = new UserCreationModel;
-        $data = $model->createUser($vorname, $nachname, $email, $psw, $birthdate, $rolle);
 
-        $toUI = ['output' => $data];
+        try {
+            $data = $model->createUser($vorname, $nachname, $email, $psw, $birthdate, $rolle);
 
-        return view('usercreation', $toUI);
+            $toUI = ['output' => $data];
+            return view('usercreation', $toUI);
+        } catch (\Exception $e) {
+            $toUI = ['error' => "Fehler ist aufgetreten"];
+            return view('usercreation', $toUI);
+        }
     }
 
     public function back()
