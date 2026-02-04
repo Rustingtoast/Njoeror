@@ -1,4 +1,4 @@
-# Njoeror Battleborn
+# Njoeror
 Schulprojekt für Liegeplatzverwaltung und Bootsverleih am Plauer See 
 
 ## Deploy Project in Dev Container
@@ -9,10 +9,10 @@ Schulprojekt für Liegeplatzverwaltung und Bootsverleih am Plauer See 
     - ``cd public_html``
     - Run ``composer install``
 
-- Access Page with http://localhost:8080/public/
+- Access Page with http://localhost:8080/
 
-- If Page is unresponsive please restart Apache server ``service apache2 restart``
-    - if that does not work rebuild container crtl+shift+P rebuild container
+- If Page is unresponsive please restart Apache server ``sudo service apache2 restart``
+- If that does not work rebuild container crtl+shift+P rebuild container
 
 ---
 ---

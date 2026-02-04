@@ -6,7 +6,6 @@ use CodeIgniter\Router\RouteCollection;
  * @var RouteCollection $routes
  */
 $routes->get('/', 'Home::index');
-$routes->post('/submit', 'Home::move');
 $routes->get('/home', 'Home::index');
 
 $routes->add('formular', 'Formular::index');

@@ -12,6 +12,9 @@ class Person extends Entity
     protected $email;
     protected $passwortHash;
     protected $geburtsdatum;
+    protected $land;
+    protected $adresse;
+    protected $hausnummer;
     protected $rolle;
 
     public function __construct() {}
@@ -44,6 +47,21 @@ class Person extends Entity
     public function getGeburtstag()
     {
         return $this->geburtsdatum;
+    }
+
+    public function getLand()
+    {
+        return $this->land;
+    }
+
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    public function getHausnummer()
+    {
+        return $this->hausnummer;
     }
 
     public function getRolle()
@@ -84,5 +102,18 @@ class Person extends Entity
     public function setRolle($rolle)
     {
         $this->rolle = $rolle;
+    }
+
+    public function setLand($land)
+    {
+        $this->land = $land;
+    }
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
+    }
+    public function setHausnummer($hausnummer)
+    {
+        $this->hausnummer = $hausnummer;
     }
 }

@@ -27,7 +27,7 @@
       display: grid;
       place-items: center;
       padding: 5vh 1rem 10vh;
-      background: url("Bilder/1.webp") no-repeat center / cover;
+      background: url("./Images/1.webp") no-repeat center / cover;
       position: relative;
     }
 
@@ -155,13 +155,20 @@
       display: inline-block;
       margin-bottom: 0.5rem;
     }
+
+    #ldap-img {
+      max-width: 70%;
+    }
   </style>
 </head>
 
 <body>
+
   <div class="login-card">
     <header>
-      <h1>LOGO<br />IMAGE</h1>
+      <h1>
+        <img src="./Images/LDAP_Bros2.png" id="ldap-img" alt="LDAP Bros Logo" />
+      </h1>
       <h2>Login</h2>
     </header>
 
@@ -200,13 +207,6 @@
           <label>
             <input type="checkbox" onclick="hidePassword()">
             Passwort anzeigen
-          </label>
-        </div>
-
-        <div class="input-div">
-          <label>
-            <input type="checkbox" name="remember" />
-            Angemeldet bleiben
           </label>
         </div>
 
