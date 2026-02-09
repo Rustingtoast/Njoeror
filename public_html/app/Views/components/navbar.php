@@ -46,7 +46,7 @@ $userRole = session()->get('user_role');
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="/">Liegeplatz buchen</a></li>
                         <li><a class="dropdown-item" href="/">Boot buchen</a></li>
-                        <li><a class="dropdown-item" href="/user/reservation/list">Reservationen</a></li>
+                        <li><a class="dropdown-item" href="/user/reservation/list">Meine Reservierungen</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
