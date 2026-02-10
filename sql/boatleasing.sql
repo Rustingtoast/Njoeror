@@ -43,7 +43,8 @@ CREATE TABLE IF NOT EXISTS `Liegeplatzverwalter`.`Boot` (
 
 CREATE TABLE IF NOT EXISTS `Liegeplatzverwalter`.`Liegeplatz_Reservierung` (
     `ID` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
-    `Accepted` BOOLEAN NOT NULL DEFAULT FALSE, 
+    `Created_At` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `Accepted` BOOLEAN NULL DEFAULT FALSE, 
     `Start_Datum` DATE NOT NULL,
     `End_Datum` DATE NOT NULL,
     `Liegeplatz_FID` INTEGER NOT NULL,
@@ -94,10 +95,10 @@ VALUES
 (1, '6.2 m', 6);
 
 INSERT INTO `Liegeplatzverwalter`.`Liegeplatz_Reservierung`
-(`Accepted`, `Start_Datum`, `End_Datum`, `Liegeplatz_FID`, `Boot_FID`, `User_FID`)
+(`Created_At`, `Accepted`, `Start_Datum`, `End_Datum`, `Liegeplatz_FID`, `Boot_FID`, `User_FID`)
 VALUES
-(FALSE, '2026-02-14', '2026-02-15', 5, 2, 4),
-(FALSE, '2026-02-10', '2026-02-10', 4, 1, 5),
-(TRUE, '2026-03-01', '2026-03-05', 2, 3, 2),
-(FALSE, '2026-03-10', '2026-03-12', 7, 4, 3),
-(TRUE, '2026-02-20', '2026-02-25', 1, 1, 2);
+('2026-01-10 18:50:02', NULL, '2026-02-14', '2026-02-15', 5, 2, 4),
+('2026-02-09 11:56:54', NULL, '2026-02-10', '2026-02-10', 4, 1, 5),
+('2026-02-10 14:30:22', NULL, '2026-03-01', '2026-03-05', 2, 3, 2),
+('2026-02-04 08:26:59', NULL, '2026-03-10', '2026-03-12', 7, 4, 3),
+('2026-02-06 13:54:36', NULL, '2026-02-20', '2026-02-25', 1, 1, 2);
