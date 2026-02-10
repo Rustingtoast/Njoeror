@@ -34,7 +34,7 @@ $userRole = session()->get('user_role');
                                     <hr class="dropdown-divider">
                                 </li>
                             <?php endif; ?>
-                            <li><a class="dropdown-item" href="/">Anfragenverwaltung</a></li>
+                            <li><a class="dropdown-item" href="/staff/reservation/list">Anfragenverwaltung</a></li>
                         </ul>
                     </div>
 

@@ -27,6 +27,11 @@ $routes->post('user/edit/back', 'UserEdit::back');
 
 $routes->get('user/reservation/list', 'Reservation::index');
 
+$routes->add('staff/reservation/list', 'StaffReservation::index');
+$routes->post('staff/reservation/list/accept', 'StaffReservation::reservation_accept');
+$routes->post('staff/reservation/list/reject', 'StaffReservation::reservation_reject');
+
+
 $routes->add('login', 'Login::index');
 $routes->post('login', 'Login::login');
 
