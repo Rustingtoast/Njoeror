@@ -12,6 +12,7 @@ class Reservation extends BaseController
         $userId = session()->get('user_id');
         $model = new ReservationList();
         $data['reservations'] = $model->getByUser((int)$userId);
+        print_r($data['reservations']);
         return view('user/reservation/list', $data);
     }
 }

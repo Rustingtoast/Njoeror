@@ -41,29 +41,20 @@ CREATE TABLE IF NOT EXISTS `Liegeplatzverwalter`.`Boot` (
         ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
-CREATE TABLE IF NOT EXISTS `Liegeplatzverwalter`.`Boot_Reservierung` (
-    `ID` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
-    `Start_Datum` DATE NOT NULL,
-    `End_Datum` DATE NOT NULL,
-    `Boat_FID` INTEGER NOT NULL,
-    `User_FID` INTEGER NOT NULL,
-    PRIMARY KEY(`ID`),
-    FOREIGN KEY(`Boat_FID`) REFERENCES `Liegeplatzverwalter`.`Boot`(`ID`)
-        ON UPDATE NO ACTION ON DELETE NO ACTION,
-    FOREIGN KEY(`User_FID`) REFERENCES `Liegeplatzverwalter`.`Person`(`ID`)
-        ON UPDATE NO ACTION ON DELETE NO ACTION
-);
-
 CREATE TABLE IF NOT EXISTS `Liegeplatzverwalter`.`Liegeplatz_Reservierung` (
     `ID` INTEGER NOT NULL AUTO_INCREMENT UNIQUE,
+    `Accepted` BOOLEAN NOT NULL DEFAULT FALSE, 
     `Start_Datum` DATE NOT NULL,
     `End_Datum` DATE NOT NULL,
     `Liegeplatz_FID` INTEGER NOT NULL,
+    `Boot_FID` INTEGER,
     `User_FID` INTEGER NOT NULL,
     PRIMARY KEY(`ID`),
     FOREIGN KEY(`Liegeplatz_FID`) REFERENCES `Liegeplatzverwalter`.`Liegeplatz`(`ID`)
         ON UPDATE NO ACTION ON DELETE NO ACTION,
     FOREIGN KEY(`User_FID`) REFERENCES `Liegeplatzverwalter`.`Person`(`ID`)
+        ON UPDATE NO ACTION ON DELETE NO ACTION,
+    FOREIGN KEY(`Boot_FID`) REFERENCES `Liegeplatzverwalter`.`Boot`(`ID`)
         ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
@@ -102,14 +93,11 @@ VALUES
 (0, '3.6 m', 3),
 (1, '6.2 m', 6);
 
-INSERT INTO `Liegeplatzverwalter`.`Boot_Reservierung`
-(`Start_Datum`, `End_Datum`, `Boat_FID`, `User_FID`)
-VALUES
-('2026-02-05', '2026-02-06', 1, 2),
-('2026-02-08', '2026-02-08', 2, 3);
-
 INSERT INTO `Liegeplatzverwalter`.`Liegeplatz_Reservierung`
-(`Start_Datum`, `End_Datum`, `Liegeplatz_FID`, `User_FID`)
+(`Accepted`, `Start_Datum`, `End_Datum`, `Liegeplatz_FID`, `Boot_FID`, `User_FID`)
 VALUES
-('2026-02-14', '2026-02-15', 5, 4),
-('2026-02-10', '2026-02-10', 4, 5);
+(FALSE, '2026-02-14', '2026-02-15', 5, 2, 4),
+(FALSE, '2026-02-10', '2026-02-10', 4, 1, 5),
+(TRUE, '2026-03-01', '2026-03-05', 2, 3, 2),
+(FALSE, '2026-03-10', '2026-03-12', 7, 4, 3),
+(TRUE, '2026-02-20', '2026-02-25', 1, 1, 2);

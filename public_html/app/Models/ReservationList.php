@@ -12,6 +12,7 @@ class ReservationList extends Model
         $sql = "
         SELECT reservierung.Start_Datum,
                reservierung.End_Datum,
+               reservierung.Accepted,
                liegeplatz.Position
         FROM `Liegeplatzverwalter`.`Liegeplatz_Reservierung` AS reservierung
         INNER JOIN `Liegeplatzverwalter`.`Liegeplatz` AS liegeplatz

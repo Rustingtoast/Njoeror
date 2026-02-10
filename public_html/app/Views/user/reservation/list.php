@@ -18,6 +18,7 @@
                     <th>Von</th>
                     <th>Bis</th>
                     <th>Position</th>
+                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,6 +27,7 @@
                         <td><?= esc($r['Start_Datum']) ?></td>
                         <td><?= esc($r['End_Datum']) ?></td>
                         <td><?= esc($r['Position']) ?></td>
+                        <td><?= esc($r['Accepted'] ? 'Akzeptiert' : 'Ausstehend') ?></td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
