@@ -40,3 +40,6 @@ $routes->post('register', 'Register::register');
 
 
 $routes->add('/logout', 'Logout::index');
+
+$routes->add('/dashboard', 'Dashboard::index');
+$routes->post('dashboard/saveLayout', 'Dashboard::saveLayout');
