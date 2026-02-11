@@ -1,5 +1,5 @@
-Admin PaulerSee / Admin
-- email it admin@paulersee.net
+Admin PlauerSee / Admin
+- email it admin@plauersee.net
 - passwort ist P8L3R-S3E
 
 Jonas Krause / Kunde

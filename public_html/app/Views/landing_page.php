@@ -35,7 +35,7 @@
                                     <rect width="100%" height="100%" fill="#55595c" style="--darkreader-inline-fill: var(--darkreader-background-55595c, #43484b);" data-darkreader-inline-fill=""></rect><text x="50%" y="50%" fill="#eceeef" dy=".3em" style="--darkreader-inline-fill: var(--darkreader-text-eceeef, #dddad6);" data-darkreader-inline-fill="">Thumbnail</text>
                                 </svg>
                                 <div class="card-body">
-                                    <p class="card-text">Hier werden unser Boot vorgestellt mit allen nötigen Inforamtionen, aber aktuell Platzhalter</p>
+                                    <p class="card-text">Hier wird unser Boot vorgestellt mit allen nötigen Informationen, aktuell jedoch nur als Platzhalter</p>
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="btn-group">
                                             <button type="button" class="btn btn-sm btn-outline-secondary">Details</button>

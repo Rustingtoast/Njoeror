@@ -88,7 +88,7 @@
                     <tr>
                         <th>ID</th>
                         <th>Benutzer</th>
-                        <th>Operations</th>
+                        <th>Operationen</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -106,7 +106,7 @@
                         <?php endforeach; ?>
                     <?php else: ?>
                         <tr>
-                            <td colspan="3">Keine User gefunden!</td>
+                            <td colspan="3">Keine Benutzer gefunden!</td>
                         </tr>
                     <?php endif; ?>
                 </tbody>
