@@ -59,7 +59,7 @@ CREATE TABLE IF NOT EXISTS `Liegeplatzverwalter`.`Liegeplatz_Reservierung` (
 INSERT INTO `Liegeplatzverwalter`.`Person`
 (`Vorname`, `Nachname`, `E-Mail`, `PasswortHash`, `Geburtsdatum`, `Land`, `Adresse`, `Hausnummer`, `Rolle`)
 VALUES
-('Admin', 'PlauerSee', 'admin@paulersee.net', '$2y$10$lWKnBEnz3FROx7hbMt9HZupQv/qXHpXkaL4L.4YSPpP9fivfaNm86', '2001-11-08', 'Deutschland', 'Fliesenleger Bach', '93', 1),
+('Admin', 'PlauerSee', 'admin@plauersee.net', '$2y$10$lWKnBEnz3FROx7hbMt9HZupQv/qXHpXkaL4L.4YSPpP9fivfaNm86', '2001-11-08', 'Deutschland', 'Fliesenleger Bach', '93', 1),
 ('Jonas', 'Krause', 'jonas.krause@example.com', '$2y$10$O.99eWqBKNQx04ffDkVIKenaq4DQRNV1o0wpI8THCNXj4uTPMbz/2', '2002-06-19', 'Frankreich', 'Rue de la Peureer', 'AB1', 3),
 ('Mark', 'Fischer', 'mark.fischer@example.com', '$2y$10$hx6bXm9TPdQFvy.ZYVXIEuIRf8FK4mfqK9f9wZp6tSRrtFfYuzv2C', '2001-07-22', 'England', 'Street the castle', 'A3', 3),
 ('Mara', 'Schulz', 'mara.schulz@example.com', '$2y$10$Emwe5.8BO0vIEWgfs2cB7uXghHS/cN59reKr0PDAu/FnefbM85FSW', '1995-02-28', 'Belgien', 'Rue de rose', 'B2', 3),

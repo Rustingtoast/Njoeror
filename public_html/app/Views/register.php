@@ -210,8 +210,8 @@
             <div class="auth-header">
                 <div class="logo-placeholder"><img src="/Images/LDAP_Bros.png" id="ldap-logo-large" alt=""></div>
                 <div class="d-flex flex-column">
-                    <h1 class="auth-title">Registerierung</h1>
-                    <small class="small-note">Kunden Account anlegen</small>
+                    <h1 class="auth-title">Registrierung</h1>
+                    <small class="small-note">Kunden-Account anlegen</small>
                 </div>
             </div>
 
