@@ -25,10 +25,21 @@ class Login extends BaseController
                 try {
                     $role = $model->userRole($email);
                     session()->set('user_role', $role);
+                    $db = \Config\Database::connect();
+                    $sql = "SELECT `ID` FROM `Liegeplatzverwalter`.`Person` WHERE `E-Mail` = ? LIMIT 1";
+                    $row = $db->query($sql, [$email])->getRowArray();
+
+                    $userId = isset($row['ID']) ? (int)$row['ID'] : null;
+
+
+                    if ($userId === null) {
+                        log_message('warning', 'Login: Keine ID in Person-Tabelle gefunden für Email: ' . $email);
+                    }
                 } catch (\Exception $e) {
                     return view('login', ['status' => $e->getMessage()]);
                 }
                 session()->set('user_email', $email);
+                session()->set('user_id', $userId);
                 return redirect()->to('/');
             case StatusLogin::ERROR_USER_NOT_FOUND:
                 return view('login', ['status' => 'Benutzer nicht gefunden.']);

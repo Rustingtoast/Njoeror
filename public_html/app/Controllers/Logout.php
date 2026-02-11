@@ -9,6 +9,6 @@ class Logout extends BaseController
         session()->remove('user_email');
         session()->remove('user_role');
 
-        return view('login', []);
+        return redirect()->to('/login');
     }
 }

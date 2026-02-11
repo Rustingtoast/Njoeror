@@ -38,6 +38,9 @@ class UserEditModel extends Model
         $person->setEmail($result['E-Mail']);
         $person->setPasswortHash($result['PasswortHash']);
         $person->setGeburtstag($result['Geburtsdatum']);
+        $person->setLand($result['Land']);
+        $person->setAdresse($result['Adresse']);
+        $person->setHausnummer($result['Hausnummer']);
         $person->setRolle($result['Rolle']);
 
 
@@ -53,6 +56,9 @@ class UserEditModel extends Model
             'E-Mail' => $person->getEmail(),
             'PasswortHash' => $person->getPasswortHash(),
             'Geburtsdatum' => $person->getGeburtstag(),
+            'Land' => $person->getLand(),
+            'Adresse' => $person->getAdresse(),
+            'Hausnummer' => $person->getHausnummer(),
             'Rolle' => $person->getRolle(),
         ];
 
