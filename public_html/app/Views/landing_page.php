@@ -2,7 +2,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Liegeplatz Reservierungs Seite</title>
+    <title>Startseite</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
@@ -15,7 +15,7 @@
             <div class="row py-lg-5">
                 <div class="col-lg-6 col-md-8 mx-auto">
                     <h1 class="fw-light">Liegeplatz- und Bootsverleih </h1>
-                    <p class="lead text-body-secondary">Buchen Sie ihren nächsten Bootsplatz oder sogar Boot bei uns und bereist die Gewässer, mit Familie oder Freunden.</p>
+                    <p class="lead text-body-secondary">Buchen Sie jetzt Ihren nächsten Liegeplatz – oder gleich ein Boot – und entdecken Sie den Plauer See mit Familie oder Freunden.</p>
                     <p>
                         <button href="/" class="btn btn-primary my-2" disabled>Liegeplatz buchen</button>
                         <button href="/" class="btn btn-secondary my-2" disabled>Boot buchen</button>

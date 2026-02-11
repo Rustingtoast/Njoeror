@@ -219,7 +219,7 @@
             <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:" style="width: 24px; height: 24px;">
                 <use xlink:href="#exclamation-triangle-fill" />
             </svg>
-            <strong>Fehler ist aufgetreten!</strong>&nbsp; <?= esc($error); ?>.
+            <strong>Ein Fehler ist aufgetreten!</strong>&nbsp; <?= esc($error); ?>.
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     <?php endif; ?>
@@ -229,7 +229,7 @@
             <div class="auth-header">
                 <div class="logo-placeholder"><img src="/Images/LDAP_Bros.png" id="ldap-logo-large" alt=""></div>
                 <div class="d-flex flex-column">
-                    <h1 class="auth-title">Benutzer Bearbeiten</h1>
+                    <h1 class="auth-title">Benutzer bearbeiten</h1>
                     <small class="small-note">Administration</small>
                 </div>
                 <div class="ms-auto">
