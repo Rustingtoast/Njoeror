@@ -43,3 +43,5 @@ $routes->add('/logout', 'Logout::index');
 
 $routes->add('weather', 'Weather::index');
 $routes->get('weather/getWeatherJSON', 'Weather::getWeatherJSON');
+$routes->add('/dashboard', 'Dashboard::index');
+$routes->post('dashboard/saveLayout', 'Dashboard::saveLayout');

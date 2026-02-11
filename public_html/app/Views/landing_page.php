@@ -17,8 +17,8 @@
                     <h1 class="fw-light">Liegeplatz- und Bootsverleih </h1>
                     <p class="lead text-body-secondary">Buchen Sie jetzt Ihren nächsten Liegeplatz – oder gleich ein Boot – und entdecken Sie den Plauer See mit Familie oder Freunden.</p>
                     <p>
-                        <button href="/" class="btn btn-primary my-2" disabled>Liegeplatz buchen</button>
-                        <button href="/" class="btn btn-secondary my-2" disabled>Boot buchen</button>
+                        <button href="/dashboard" class="btn btn-primary my-2">Liegeplatz buchen</button>
+                        <button href="/dashboard" class="btn btn-secondary my-2">Boot buchen</button>
                     </p>
                 </div>
             </div>
