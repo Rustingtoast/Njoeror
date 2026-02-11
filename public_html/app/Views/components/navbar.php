@@ -1,6 +1,7 @@
 <?php
 
 use App\Entities\UserRoles; // Nutzer Rollen um Magic Numbers zu vermeiden 
+use App\Controllers\Weather;
 
 if (!session()->get('user_email') || !session()->get('user_role')) {
     return redirect()->to('/login');
@@ -8,6 +9,8 @@ if (!session()->get('user_email') || !session()->get('user_role')) {
 
 $loginUser = session()->get('user_email');
 $userRole = session()->get('user_role');
+$ctrlWeather = new Weather();
+$arrWeatherAPI = $ctrlWeather->getWeatherJSON();
 ?>
 
 <header data-bs-theme="dark">
@@ -20,7 +23,12 @@ $userRole = session()->get('user_role');
                 </svg>
                 <strong>LDAP-Bros - Plau am See</strong>
             </a>
-
+            <div class="d-flex ms-auto text-white gap-2">
+                <span><strong>Regen in mm: </strong><?= esc($arrWeatherAPI["Regen in mm"]) ?></span>
+                <span><strong>Temperatur C°: </strong><?= esc($arrWeatherAPI["Temperatur in C°"]) ?></span>
+                <span><strong>Wetter: </strong><?= esc($arrWeatherAPI["Wetter_Code"]) ?></span>
+            </div>
+            <div class="d-flex ms-auto gap-2"></div>
             <div class="d-flex gap-2">
                 <?php if ($userRole != UserRoles::USER->value): ?>
                     <div class="dropdown">
