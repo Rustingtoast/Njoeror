@@ -51,7 +51,7 @@
     </main>
     <footer class="text-body-secondary py-5">
         <div class="container">
-            <p class="mb-1">Dieser Service wird ihnen von uns bereitgestellt.</p>
+            <p class="mb-1">Plau am See <small>&copy; 2026 LDAP-Bros</small></p>
 
         </div>
     </footer>
