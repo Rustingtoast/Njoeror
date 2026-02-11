@@ -3,13 +3,11 @@
 
 <head>
   <meta charset="UTF-8">
-  <title>CI4 + Vue + GridStack</title>
-
-  <!-- GridStack CSS -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/gridstack@9.2.0/dist/gridstack.min.css"
-    rel="stylesheet" />
-
+  <title>Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/gridstack@9.2.0/dist/gridstack.min.css" rel="stylesheet" />
   <style>
     body {
       margin: 0;
@@ -34,7 +32,7 @@
 </head>
 
 <body>
-
+  <? require 'components/navbar.php'; ?>
   <div id="app">
     <div style="padding:20px; display:flex; gap:20px">
 
@@ -49,10 +47,7 @@
           <h3>Grid B</h3>
           <div id="gridB" class="grid-stack"></div>
         </div>
-
       </div>
-
-
       <div>
         <h3>Open Ocean</h3>
         <div id="openOcean" class="grid-stack"></div>
@@ -154,24 +149,7 @@
         return {};
       },
 
-      // template: `
-      //     <div style="padding:20px; display:flex; gap:20px">
-      //     <div style="width:50%">
-      //         <h3>Grid A</h3>
-      //         <div id="gridA" class="grid-stack"></div>
-      //     </div>
 
-      //     <div style="width:50%">
-      //         <h3>Grid B</h3>
-      //         <div id="gridB" class="grid-stack"></div>
-      //     </div>
-
-      //     <div style="width:50%">
-      //         <h3>Open Ocean</h3>
-      //         <div id="openOcean" class="grid-stack"></div>
-      //     </div>
-      //     </div>
-      // `
     }).mount('#app');
   </script>
 </body>
