@@ -6,13 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <style>
+        #main-div {
+            width: 90%;
+            margin: auto;
+        }
+    </style>
 </head>
 
 <body>
     <? require 'components/navbar.php'; ?>
-    <div style="width: 1000px; margin: auto;">
+    <div id="main-div">
 
-        <h1>Staff Reservation</h1>
+        <h1>Reservierungsübersicht</h1>
 
         <?php if (isset($error)) : echo $error;
         endif; ?>

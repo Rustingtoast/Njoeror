@@ -31,9 +31,6 @@ class Login extends BaseController
 
                     $userId = isset($row['ID']) ? (int)$row['ID'] : null;
 
-                    $session = session();
-                    $session->regenerate();
-                    $session->set('user_id', $userId);
 
                     if ($userId === null) {
                         log_message('warning', 'Login: Keine ID in Person-Tabelle gefunden für Email: ' . $email);
@@ -42,6 +39,7 @@ class Login extends BaseController
                     return view('login', ['status' => $e->getMessage()]);
                 }
                 session()->set('user_email', $email);
+                session()->set('user_id', $userId);
                 return redirect()->to('/');
             case StatusLogin::ERROR_USER_NOT_FOUND:
                 return view('login', ['status' => 'Benutzer nicht gefunden.']);
